@@ -17,9 +17,11 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; line-height: 1.6; color: var(--text); }
     header {
-      background: var(--blue) url('A_digital_illustration_depicts_a_light-skinned,_at.png') center/cover no-repeat;
+      /* Fondo con corredor, enfocado en la parte superior (cara) */
+      background: var(--blue) url('A_digital_illustration_depicts_a_light-skinned,_at.png') center top/cover no-repeat;
+      background-blend-mode: multiply;
       color: #fff;
-      padding: 4rem 1rem;
+      padding: 6rem 1rem;
       text-align: center;
       position: relative;
     }
