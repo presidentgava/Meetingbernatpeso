@@ -36,16 +36,6 @@
     .btn:hover { background: var(--blue); color: #fff; }
     #schedule table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
     #schedule th, #schedule td { border: 1px solid #ccc; padding: 0.5rem; text-align: center; }
-    #location iframe { width: 100%; height: 300px; border: 0; }
-    /* Galería de fotos */
-    .gallery { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .gallery img { flex: 1 1 calc(30% - 1rem); max-width: calc(30% - 1rem); border-radius: 4px; cursor: pointer; }
-    /* Lightbox */
-    .lightbox-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 1000; }
-    .lightbox-overlay img { max-width: 90%; max-height: 90%; border-radius: 4px; box-shadow: 0 0 20px rgba(255,255,255,0.5); }
-    .lightbox-overlay:focus { outline: none; }
-    footer { background: var(--blue); color: #ddd; text-align: center; padding: 1rem; margin-top: 2rem; }
-    footer a { color: var(--yellow); text-decoration: none; }
   </style>
 </head>
 <body>
@@ -59,20 +49,17 @@
       <a href="#register-online" class="btn">Inscríbete Ahora</a>
     </div>
   </header>
-
   <nav>
     <ul>
       <li><a href="#about">Sobre el Evento</a></li>
       <li><a href="#schedule">Programa</a></li>
-      <li><a href="#gallery">Galería</a></li>
       <li><a href="#rules">Reglamento</a></li>
       <li><a href="#register-online">Registro Online</a></li>
       <li><a href="#location">Ubicación</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
   </nav>
-
-      <section id="about">
+  <section id="about">
     <div class="container">
       <h2 style="color: var(--red);">Sobre el I Memorial Bernat Peso</h2>
       <div class="about-content" style="text-align:center;">
@@ -84,63 +71,38 @@
       </div>
     </div>
   </section>
-
-    <section id="schedule">
+      <section id="schedule">
     <div class="container">
       <h2 style="color: var(--red);">Programa</h2>
       <table>
         <thead>
-          <tr>
-            <th>Hombres</th>
-            <th>Hora</th>
-            <th>Mujeres</th>
-          </tr>
+          <tr><th>Hombres</th><th>Hora</th><th>Mujeres</th></tr>
         </thead>
         <tbody>
-          <tr><td>100 m.l. (semifinal)</td><td style="color: var(--red);">17:00</td><td>100 m.l. (semifinal)</td></tr>
-          <tr><td></td><td style="color: var(--red);">17:25</td><td></td></tr>
-          <tr><td>400 m.vallas</td><td style="color: var(--red);">18:00</td><td></td></tr>
-          <tr><td></td><td style="color: var(--red);">18:15</td><td>400 m.vallas</td></tr>
-          <tr><td></td><td style="color: var(--red);">18:25</td><td></td></tr>
-          <tr><td></td><td style="color: var(--red);">18:40</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">17:00</td><td>100 m.l. (semifinal)</td></tr>
+          <tr><td>100 m.l. (semifinal)</td><td style="color: var(--red);">17:25</td><td></td></tr>
+          <tr><td>110 m.vallas</td><td style="color: var(--red);">18:00</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">18:15</td><td>100 m.vallas</td></tr>
           <tr><td>100 m.l. (final)</td><td style="color: var(--red);">18:55</td><td></td></tr>
           <tr><td></td><td style="color: var(--red);">19:00</td><td>100 m.l. (final)</td></tr>
-          <tr><td></td><td style="color: var(--red);">19:05</td><td>Salto de altura</td></tr>
-          <tr><td></td><td style="color: var(--red);">19:10</td><td>100 m.vallas</td></tr>
-          <tr><td>110 m.vallas</td><td style="color: var(--red);">19:20</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">19:05</td><td>Martillo</td></tr>
+          <tr><td>800 m.l. Final B</td><td style="color: var(--red);">19:10</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">19:20</td><td>800 m.l. Final B</td></tr>
           <tr><td>200 m.l.</td><td style="color: var(--red);">19:30</td><td></td></tr>
-          <tr><td>Salto con pértiga</td><td style="color: var(--red);">19:35</td><td>200 m.l.</td></tr>
-          <tr><td>400 m.l.</td><td style="color: var(--red);">19:45</td><td></td></tr>
-          <tr><td></td><td style="color: var(--red);">19:50</td><td>400 m.l.</td></tr>
-          <tr><td>800 m.l. Final B</td><td style="color: var(--red);">20:00</td><td></td></tr>
-          <tr><td>800 m.l. Final A</td><td style="color: var(--red);">20:07</td><td></td></tr>
-          <tr><td></td><td style="color: var(--red);">20:14</td><td>800 m.l. Final B</td></tr>
-          <tr><td></td><td style="color: var(--red);">20:21</td><td>800 m.l. Final A</td></tr>
-          <tr><td>5000 m.l.</td><td style="color: var(--red);">20:35</td><td></td></tr>
-          <tr><td></td><td style="color: var(--red);">21:00</td><td>5000 m.l.</td></tr>
-          <tr><td></td><td style="color: var(--red);">21:30</td><td></td></tr>
-          <tr><td></td><td style="color: var(--red);">21:50</td><td></td></tr>
+          <tr><td>Longitud</td><td style="color: var(--red);">19:35</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">19:40</td><td>200 m.l.</td></tr>
+          <tr><td>400 m.l.</td><td style="color: var(--red);">20:00</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">20:15</td><td>400 m.l.</td></tr>
+          <tr><td></td><td style="color: var(--red);">20:30</td><td>800 m.l. Final A</td></tr>
+          <tr><td>800 m.l. Final A</td><td style="color: var(--red);">20:35</td><td></td></tr>
+          <tr><td>600 m.l. (Por invitación)</td><td style="color: var(--red);">20:40</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">20:50</td><td>5000 m.l.</td></tr>
+          <tr><td>5000 m.l.</td><td style="color: var(--red);">21:10</td><td></td></tr>
         </tbody>
       </table>
     </div>
   </section>
-
-  <section id="gallery">
-    <div class="container">
-      <h2 style="color: var(--red);">Galería de Fotos</h2>
-      <div class="gallery">
-        <!-- Miniaturas con lightbox -->
-        <img src="230610_165847_avap1213.jpg" alt="Salida de 100 metros">
-        <!-- ... más imágenes ... -->
-      </div>
-    </div>
-  </section>
-
-  <div class="lightbox-overlay" tabindex="0">
-    <img src="" alt="">
-  </div>
-
-    <section id="rules">
+  <section id="rules">
     <div class="container">
       <h2 style="color: var(--red);">Reglamento</h2>
       <div>
@@ -149,8 +111,7 @@
       </div>
     </div>
   </section>
-
-    <section id="register-online">
+  <section id="register-online">
     <div class="container">
       <h2 style="color: var(--red);">Registro Online</h2>
       <div>
@@ -159,61 +120,26 @@
       </div>
     </div>
   </section>
-
-    <section id="location">
+  <section id="location">
     <div class="container">
       <h2 style="color: var(--red);">Ubicación</h2>
       <p>Pista de Atletismo de la Bòbila, Gavà</p>
-      <iframe
-        src="https://www.google.com/maps?q=Pista+Atletismo+La+B%C3%B2bila+Gav%C3%A0&output=embed"
-        width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
-      </iframe>
+      <iframe src="https://www.google.com/maps?q=Pista+Atletismo+La+B%C3%B2bila+Gav%C3%A0&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
       <a href="https://www.google.com/maps/dir/?api=1&destination=Pista+Atletismo+La+B%C3%B2bila,+Gav%C3%A0" class="btn" target="_blank">Cómo llegar</a>
     </div>
   </section>
-
-    <section id="contact">
+  <section id="contact">
     <div class="container">
       <h2 style="color: var(--red);">Contacto</h2>
       <p>¿Tienes preguntas? Escríbenos al correo:</p>
       <p><a href="mailto:competicion@clubatletismegava.com" class="btn">competicion@clubatletismegava.com</a></p>
-      <form action="mailto:competicion@clubatletismegava.com" method="post" enctype="text/plain">
-        <label>Nombre:<br><input type="text" name="Nombre" required></label><br><br>
-        <label>Email:<br><input type="email" name="Email" required></label><br><br>
-        <label>Mensaje:<br><textarea name="Mensaje" rows="4" required></textarea></label><br><br>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
     </div>
   </section>
-
   <footer>
     <div class="container">
       <p>&copy; 2025 Meeting Bernat Peso. Todos los derechos reservados.</p>
       <p>Visita <a href="http://www.clubatletismegava.com" target="_blank">Club Atletisme Gavà</a></p>
     </div>
   </footer>
-
-  <script>
-    // Lightbox functionality
-    const overlay = document.querySelector('.lightbox-overlay');
-    const overlayImage = overlay.querySelector('img');
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.addEventListener('click', () => {
-        overlayImage.src = img.src;
-        overlay.style.display = 'flex';
-        overlay.focus();
-      });
-    });
-    overlay.addEventListener('click', () => {
-      overlay.style.display = 'none';
-      overlayImage.src = '';
-    });
-    overlay.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        overlay.style.display = 'none';
-        overlayImage.src = '';
-      }
-    });
-  </script>
 </body>
 </html>
