@@ -5,95 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Memorial Bernat Peso - 02 de Julio de 2025 (Gavà)</title>
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; }
-    header { background:#00529B; color:#fff; padding:2rem; text-align:center; }
-    header h1 { margin:0; font-size:2rem; }
-    section { padding:2rem; }
-    .buttons a { display:inline-block; margin:0.5rem; padding:0.75rem 1.5rem; background:#00529B; color:#fff; text-decoration:none; border-radius:4px; }
-    /* Galería */
-    #galeria .thumbnails { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.5rem; }
-    #galeria .thumbnails img { width:100%; cursor:pointer; border-radius:4px; transition:transform .2s; }
-    #galeria .thumbnails img:hover { transform:scale(1.05); }
-    #lightbox { position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; z-index:1000; }
-    #lightbox.hidden { display:none; }
-    #lightbox-img { max-width:90%; max-height:90%; border-radius:4px; }
-    #lightbox-close { position:absolute; top:1rem; right:1rem; font-size:2rem; color:#fff; cursor:pointer; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    :root { --blue: #0D47A1; --red: #E53935; --yellow: #FFD600; --text: #333; }
+    header { background: var(--blue); color: #fff; padding: 2rem 1rem; text-align: center; }
+    header h1 { font-size: 2.5rem; margin: 0; }
+    nav { background: var(--blue); }
+    nav ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0.5rem; }
+    nav li { margin: 0 1rem; }
+    nav a { color: #fff; text-decoration: none; font-weight: bold; }
+    section { padding: 2rem 1rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: center; }
+    .btn { display: inline-block; background: var(--yellow); color: var(--blue); padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px; margin: 0.5rem 0; }
+    iframe { width: 100%; height: 300px; border: 0; }
+    footer { background: var(--blue); color: #ddd; text-align: center; padding: 1rem; }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>I Memorial Bernat Peso - 02 de Julio de 2025 (Gavà)</h1>
-</header>
-
-<section id="sobre">
-  <h2>Sobre el Memorial Bernat Peso</h2>
-  <p>El I Memorial Bernat Peso es una competición internacional enmarcada en el Global Calendar, que reunirá a gran parte de los mejores atletas nacionales y a destacados deportistas de más de 15 países. Este evento de primer nivel representa una oportunidad excepcional para la ciudad de Gavà, que se consolidará como sede de un espectáculo atlético de primer orden.<br>
-  Bernat fue el presidente del Club Atletisme Gavà y desgraciadamente falleció en 2024. Fue una persona que nos marcó mucho y que sentó unas raíces fuertes para que el club siga creciendo.</p>
-</section>
-
-<section id="programa">
-  <h2>Programa</h2>
-  <!-- Aquí iría la tabla con horarios ya ajustada -->
-</section>
-
-<section id="reglamentos">
-  <h2>Reglamentos</h2>
-  <div class="buttons">
-    <a href="I Memorial Bernat Peso_CAT.pdf" target="_blank">Reglamento (CAT)</a>
-    <a href="I Memorial Bernat Peso_ESP.pdf" target="_blank">Reglamento (ESP)</a>
-    <a href="https://forms.gle/X1iTC6g6E4ukcB1T8" target="_blank">Inscripciones</a>
-  </div>
-</section>
-
-<section id="ubicacion">
-  <h2>Ubicación</h2>
-  <p>Pista de Atletismo de la Bòbila, Gavà.</p>
-  <div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    <div class="buttons">
-      <a href="https://maps.google.com/?q=Pista+Atletismo+La+Bòbila+Gavà" target="_blank">Cómo llegar</a>
+  <header>
+    <div class="container">
+      <h1>I Memorial Bernat Peso</h1>
+      <p>02 de Julio de 2025 (Gavà)</p>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>Para más información: <a href="mailto:competicion@clubatletismegava.com">competicion@clubatletismegava.com</a></p>
-</section>
+  <nav>
+    <ul>
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#schedule">Programa</a></li>
+      <li><a href="#rules">Reglamento</a></li>
+      <li><a href="#register-online">Registro</a></li>
+      <li><a href="#location">Ubicación</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
 
-<!-- Galería con Lightbox -->
-<section id="galeria">
-  <h2>Galería</h2>
-  <div class="thumbnails">
-    <img src="230610_165847_avap1213.jpg" alt="Salida en series" data-full="230610_165847_avap1213.jpg">
-    <img src="230610_171222_avap1419.jpg" alt="Control de tiempos" data-full="230610_171222_avap1419.jpg">
-    <img src="230610_172657_avap1512.jpg" alt="Corredores en acción" data-full="230610_172657_avap1512.jpg">
-    <img src="230610_173735_avap1624.jpg" alt="Meta en salto" data-full="230610_173735_avap1624.jpg">
-  </div>
-</section>
+  <section id="about">
+    <div class="container">
+      <h2 style="color: var(--red)">Sobre el I Memorial Bernat Peso</h2>
+      <p>El I Memorial Bernat Peso es una competición internacional enmarcada en el Global Calendar, que reunirá a gran parte de los mejores atletas nacionales y a destacados deportistas de más de 15 países. Este evento de primer nivel representa una oportunidad excepcional para la ciudad de Gavà, que se consolidará como sede de un espectáculo atlético de primer orden.</p>
+      <p>Bernat fue el presidente del Club Atletisme Gavà y falleció en 2024, dejando un legado sólido que impulsa el crecimiento del club.</p>
+    </div>
+  </section>
 
-<div id="lightbox" class="hidden">
-  <span id="lightbox-close">&times;</span>
-  <img id="lightbox-img" src="" alt="">
-</div>
+  <section id="schedule">
+    <div class="container">
+      <h2 style="color: var(--red)">Programa</h2>
+      <table>
+        <thead>
+          <tr><th>Hombres</th><th>Hora</th><th>Mujeres</th></tr>
+        </thead>
+        <tbody>
+          <!-- Filas de horario según última versión confirmada -->
+          <tr><td></td><td style="color: var(--red);">17:00</td><td>100 m.l. (semifinal)</td></tr>
+          <tr><td>100 m.l. (semifinal)</td><td style="color: var(--red);">17:25</td><td></td></tr>
+          <tr><td>110 m.vallas</td><td style="color: var(--red);">18:00</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">18:15</td><td>100 m.vallas</td></tr>
+          <tr><td>100 m.l. (final)</td><td style="color: var(--red);">18:55</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">19:00</td><td>100 m.l. (final)</td></tr>
+          <tr><td></td><td style="color: var(--red);">19:05</td><td>Martillo</td></tr>
+          <tr><td>800 m.l. Final B</td><td style="color: var(--red);">19:10</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">19:20</td><td>800 m.l. Final B</td></tr>
+          <tr><td>200 m.l.</td><td style="color: var(--red);">19:30</td><td></td></tr>
+          <tr><td>Longitud</td><td style="color: var(--red);">19:35</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">19:40</td><td>200 m.l.</td></tr>
+          <tr><td>400 m.l.</td><td style="color: var(--red);">20:00</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">20:15</td><td>400 m.l.</td></tr>
+          <tr><td></td><td style="color: var(--red);">20:30</td><td>800 m.l. Final A</td></tr>
+          <tr><td>800 m.l. Final A</td><td style="color: var(--red);">20:35</td><td></td></tr>
+          <tr><td>600 m.l. (Por invitación)</td><td style="color: var(--red);">20:40</td><td></td></tr>
+          <tr><td></td><td style="color: var(--red);">20:50</td><td>5000 m.l.</td></tr>
+          <tr><td>5000 m.l.</td><td style="color: var(--red);">21:10</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-<script>
-  document.querySelectorAll('#galeria .thumbnails img').forEach(img => {
-    img.addEventListener('click', () => {
-      document.getElementById('lightbox-img').src = img.dataset.full;
-      document.getElementById('lightbox').classList.remove('hidden');
-    });
-  });
-  document.getElementById('lightbox-close').addEventListener('click', () => {
-    document.getElementById('lightbox').classList.add('hidden');
-  });
-  document.getElementById('lightbox').addEventListener('click', e => {
-    if (e.target === e.currentTarget) {
-      e.currentTarget.classList.add('hidden');
-    }
-  });
-</script>
+  <section id="rules">
+    <div class="container">
+      <h2 style="color: var(--red)">Reglamento</h2>
+      <a href="I Memorial Bernat Peso_CAT.pdf" class="btn" target="_blank">Reglamento Català</a>
+      <a href="I Memorial Bernat Peso_ESP.pdf" class="btn" target="_blank">Reglamento Español</a>
+    </div>
+  </section>
 
+  <section id="register-online">
+    <div class="container">
+      <h2 style="color: var(--red)">Registro Online</h2>
+      <a href="https://atletismorfea.es/user/login-registro" class="btn" target="_blank">Registro Nacional</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSefgSTnUddqVJ_EImycqbcJo12qucdrokoBSq74vZCS2g4HrA/viewform?usp=preview" class="btn" target="_blank">Registro Managers</a>
+    </div>
+  </section>
+
+  <section id="location">
+    <div class="container">
+      <h2 style="color: var(--red)">Ubicación</h2>
+      <p>Pista de Atletismo de la Bòbila, Gavà</p>
+      <iframe src="https://www.google.com/maps?q=Pista+Atletismo+La+B%C3%B2bila+Gav%C3%A0&output=embed" allowfullscreen loading="lazy"></iframe>
+      <a href="https://maps.google.com/?q=Pista+Atletismo+La+B%C3%B2bila+Gav%C3%A0" class="btn" target="_blank">Cómo llegar</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 style="color: var(--red)">Contacto</h2>
+      <p><a href="mailto:competicion@clubatletismegava.com" class="btn">competicion@clubatletismegava.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 I Memorial Bernat Peso. Todos los derechos reservados.</p>
+      <p><a href="http://www.clubatletismegava.com" target="_blank">Club Atletisme Gavà</a></p>
+    </div>
+  </footer>
 </body>
 </html>
