@@ -2,300 +2,114 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Memorial Bernat Peso</title>
   <style>
+    /* Variables de color */
+    :root {
+      --primary: #007BFF;
+      --secondary: #0056b3;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --text: #212529;
+    }
     /* Reset básico */
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text); line-height: 1.6; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    body { font-family: Arial, sans-serif; line-height: 1.5; }
-
-    header {
-      background: #007BFF;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .wrapper {
-      display: flex;
-      max-width: 1200px;
-      margin: 1rem auto;
-    }
-
-    aside {
-      position: sticky;
-      top: 1rem;
-      width: 200px;
-      margin-right: 2rem;
-    }
-
-    aside h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    aside img {
-      display: block;
-      max-width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    section h2 {
-      margin-bottom: 1rem;
-      color: #007BFF;
-    }
-
-    /* Sobre */
-    .about-content {
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .about-img {
-      max-width: 250px;
-      height: auto;
-    }
-
-    .about-text {
-      text-align: justify;
-    }
-
-    /* Reglamentos */
-    .rules-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .rules-buttons a {
-      background: #007BFF;
-      color: white;
-      padding: 0.75rem 1.25rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.95rem;
-    }
-
-    /* Programa / horario */
-    table {
+    /* Hero fullscreen */
+    .hero {
+      position: relative;
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: center;
-    }
-
-    th { background: #f0f0f0; }
-
-    /* Mapa */
-    .map-container {
-      margin-top: 1rem;
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 0.5rem;
-      background: #007BFF;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.9rem;
-    }
-
-    /* Galería */
-    .gallery {
+      height: 100vh;
+      background: url('230610_190144_avap2475.jpg') center/cover no-repeat;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .gallery img {
-      width: 150px;
-      cursor: pointer;
-      border: 2px solid #fff;
-      transition: border-color 0.3s;
-    }
-
-    .gallery img:hover {
-      border-color: #007BFF;
-    }
-
-    #lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
+      text-align: center;
+      color: white;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      opacity: 0.9;
     }
 
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
+    /* Navegación sticky */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav li { margin: 0 1rem; }
+    nav a {
+      display: block;
+      padding: 1rem;
+      font-weight: bold;
+      color: var(--dark);
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--primary);
     }
 
-    /* Contacto */
-    .contact p {
-      margin-top: 0.5rem;
+    /* Contenedor general */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
   </style>
 </head>
 <body>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>I Memorial Bernat Peso</h1>
+      <p>02 de Julio de 2025 — Gavà</p>
+    </div>
+  </section>
 
-  <header>
-    <h1>I Memorial Bernat Peso – 02 de Julio de 2025 (Gavà)</h1>
-  </header>
+  <!-- Navegación -->
+  <nav>
+    <ul>
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#schedule">Programa</a></li>
+      <li><a href="#reglamentos">Reglamento</a></li>
+      <li><a href="#gallery">Galería</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
 
-  <div class="wrapper">
-
-    <!-- Columna lateral de Sponsors y Colaboradores -->
-    <aside>
-      <h3>Sponsors</h3>
-      <img src="patrocinador club.jpeg" alt="Clíniques Vela-Segalà">
-      <h3>Con la colaboración de:</h3>
-      <img src="ajuntament gava.png" alt="Ajuntament de Gavà">
-    </aside>
-
-    <!-- Contenido principal -->
-    <main>
-
-      <!-- Sobre -->
-      <section id="about">
-        <h2>Sobre el I Memorial Bernat Peso</h2>
-        <div class="about-content">
-          <img src="A_digital_illustration_depicts_a_light-skinned,_at.png" alt="Bernat Peso" class="about-img">
-          <div>
-            <p class="about-text">
-              El I Memorial Bernat Peso es una competición nacional enmarcada en el Global Calendar, que reunirá a gran parte de los mejores atletas catalanes y nacionales durante la jornada que se extenderá durante toda la tarde. Este evento de primer nivel representa una oportunidad excepcional para la ciudad de Gavà, que se consolidará como sede de un espectáculo atlético de primer orden ya que el hecho de estar incluido en Global Calendar valida las marcas para poder competir en competiciones internacionales.
-            </p>
-            <p class="about-text">
-              Bernat fue el presidente del Club Atletisme Gavà y desgraciadamente falleció en 2024. Fue una persona que nos marcó mucho y que sentó unas raíces fuertes para que el club siga creciendo. Por ese motivo, este año celebramos la primera edición de este Memorial con la intención de recuperar poco a poco el meeting internacional que se disputaba en Gavà hace unos años y que era un evento importante en la ciudad.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Reglamentos -->
-      <section id="rules">
-        <h2>Reglamentos</h2>
-        <div class="rules-buttons">
-          <a href="I Memorial Bernat Peso_CAT.pdf" target="_blank">Versión Català</a>
-          <a href="I Memorial Bernat Peso_ESP.pdf" target="_blank">Versión Castellano</a>
-        </div>
-      </section>
-
-      <!-- Programa / Horario -->
-      <section id="schedule">
-        <h2>Programa de la Competición</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Hombres</th>
-              <th>Hora</th>
-              <th>Mujeres</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>100 m.ll. (semifinal)</td><td>17:25</td><td>100 m.ll. (semifinal)</td></tr>
-            <tr><td>110 m.vallas</td><td>18:00</td><td>100 m.vallas</td></tr>
-            <tr><td>100 m.ll. (Final)</td><td>18:55</td><td>100 m.ll. (Final)</td></tr>
-            <tr><td>Martillo</td><td>19:05</td><td>Martillo</td></tr>
-            <tr><td>800 m.ll. Final B</td><td>19:10</td><td>800 m.ll. Final B</td></tr>
-            <tr><td>200 m.ll.</td><td>19:30</td><td>200 m.ll.</td></tr>
-            <tr><td>Longitud</td><td>19:35</td><td>Longitud</td></tr>
-            <tr><td>400 m.ll.</td><td>20:00</td><td>400 m.ll.</td></tr>
-            <tr><td>800 m.ll. Final A</td><td>20:35</td><td>800 m.ll. Final A</td></tr>
-            <tr><td>600 m.ll. (por invitación)</td><td>20:40</td><td>600 m.ll. (por invitación)</td></tr>
-            <tr><td>5000 m.ll.</td><td>21:10</td><td>5000 m.ll.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- Ubicación -->
-      <section id="location">
-        <h2>Ubicación</h2>
-        <p>Pista de Atletismo de la Bòbila, Gavà (Barcelona)</p>
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.1234567890123!2d2.000000!3d41.300000!2m3!1f0!2f0!3f0!3m2!
-            1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDE4JzQwLjMiTiAywrAwMCcwMC4wIlc!5e0!3m2!1ses!2ses!4v1234567890123"
-            allowfullscreen="" loading="lazy">
-          </iframe>
-        </div>
-        <a href="https://goo.gl/maps/tu_enlace" class="btn" target="_blank">Cómo llegar</a>
-      </section>
-
-      <!-- Galería -->
-      <section id="gallery">
-        <h2>Galería</h2>
-        <div class="gallery">
-          <!-- Repite esta línea por cada imagen: data-full apunta a la imagen grande -->
-          <img src="230610_165847_avap1213.jpg" data-full="230610_165847_avap1213.jpg" alt="">
-          <img src="230610_171222_avap1419.jpg" data-full="230610_171222_avap1419.jpg" alt="">
-          <img src="230610_172657_avap1512.jpg" data-full="230610_172657_avap1512.jpg" alt="">
-          <img src="230610_173735_avap1624.jpg" data-full="230610_173735_avap1624.jpg" alt="">
-          <img src="230610_174537_avap1700.jpg" data-full="230610_174537_avap1700.jpg" alt="">
-          <img src="230610_182928_avap1996.jpg" data-full="230610_182928_avap1996.jpg" alt="">
-          <img src="230610_190144_avap2475.jpg" data-full="230610_190144_avap2475.jpg" alt="">
-          <img src="230610_191744_avap2525.jpg" data-full="230610_191744_avap2525.jpg" alt="">
-          <img src="230610_192604_avap2632.jpg" data-full="230610_192604_avap2632.jpg" alt="">
-          <img src="230610_194747_avap2751.jpg" data-full="230610_194747_avap2751.jpg" alt="">
-        </div>
-      </section>
-
-      <!-- Contacto -->
-      <section id="contact" class="contact">
-        <h2>Contacto</h2>
-        <p>Para cualquier consulta: <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a></p>
-      </section>
-
-    </main>
+  <div class="container">
+    <!-- Aquí irán las secciones Sobre, Programa, Reglamento, Galería, Contacto, etc. -->
   </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox">
-    <img src="" alt="">
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const lightbox = document.getElementById('lightbox');
-      const lbImage = lightbox.querySelector('img');
-
-      document.querySelectorAll('.gallery img').forEach(img => {
-        img.addEventListener('click', () => {
-          lbImage.src = img.dataset.full;
-          lightbox.style.display = 'flex';
-        });
-      });
-
-      lightbox.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-      });
-    });
-  </script>
 </body>
 </html>
