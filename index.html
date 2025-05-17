@@ -32,7 +32,40 @@
     main { padding: 2rem; }
     .tab { display: none; }
     .tab.active { display: block; }
-    /* Imágenes justas juntas de texto */
+
+    /* HOME: miniaturas */
+    #home .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+      align-items: center;
+    }
+    #home .thumb {
+      border: 3px solid #004080;
+      padding: 0.5rem;
+      text-align: center;
+      width: 120px;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    #home .thumb:hover {
+      transform: translateY(-4px);
+      border-color: #002040;
+    }
+    #home .thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    #home .thumb span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #004080;
+    }
+
+    /* HISTORIA: imagen y texto */
     section#history { display: flex; gap: 2rem; align-items: center; }
     section#history img { max-width: 100%; height: auto; object-fit: contain; }
     section#history div { flex: 1; text-align: justify; }
@@ -43,10 +76,11 @@
       document.getElementById(id).classList.add('active');
     }
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', e => {
+      document.querySelectorAll('nav a, #home .thumb').forEach(el => {
+        el.addEventListener('click', e => {
           e.preventDefault();
-          showTab(link.getAttribute('href').slice(1));
+          const target = el.getAttribute('href') || el.dataset.target;
+          showTab(target.replace('#',''));
         });
       });
       // Muestra home al cargar
@@ -71,7 +105,28 @@
   <main>
     <!-- SECCIÓN HOME -->
     <section id="home" class="tab active">
-      <p>Bienvenido al I Memorial Bernat Peso. Usa el menú superior para navegar.</p>
+      <div class="grid">
+        <div class="thumb" data-target="#history">
+          <img src="230610_165847_avap1213.jpg" alt="Historia">
+          <span>Historia</span>
+        </div>
+        <div class="thumb" data-target="#reglamento">
+          <img src="230610_171222_avap1419.jpg" alt="Reglamento">
+          <span>Reglamento</span>
+        </div>
+        <div class="thumb" data-target="#programa">
+          <img src="230610_172657_avap1512.jpg" alt="Programa">
+          <span>Programa</span>
+        </div>
+        <div class="thumb" data-target="#gallery">
+          <img src="230610_173735_avap1624.jpg" alt="Galería">
+          <span>Galería</span>
+        </div>
+        <div class="thumb" data-target="#contact">
+          <img src="230610_174537_avap1700.jpg" alt="Contacto">
+          <span>Contacto</span>
+        </div>
+      </div>
     </section>
 
     <!-- SECCIÓN HISTORIA -->
@@ -94,22 +149,22 @@
 
     <!-- SECCIÓN REGLAMENTO -->
     <section id="reglamento" class="tab">
-      <!-- Aquí irá todo el contenido de reglamento.html -->
+      <!-- (contenido de reglamento.html) -->
     </section>
 
     <!-- SECCIÓN PROGRAMA -->
     <section id="programa" class="tab">
-      <!-- Aquí irá todo el programa -->
+      <!-- (contenido del programa) -->
     </section>
 
     <!-- SECCIÓN GALERÍA -->
     <section id="gallery" class="tab">
-      <!-- Aquí irá la galería con lightbox -->
+      <!-- (galería con lightbox) -->
     </section>
 
     <!-- SECCIÓN CONTACTO -->
     <section id="contact" class="tab">
-      <!-- Aquí irá el formulario o datos de contacto -->
+      <!-- (datos de contacto) -->
     </section>
   </main>
 </body>
