@@ -1,171 +1,246 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>I Memorial Bernat Peso</title>
   <style>
-    body { margin: 0; font-family: sans-serif; }
-    header#hero {
-      background-image: url('230610_165847_avap1213.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-    }
-    nav {
-      background: #004080;
-      display: flex;
-      justify-content: center;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 1rem;
-      transition: background 0.2s;
-    }
-    nav a:hover { background: #003060; }
-    main { padding: 2rem; }
-    .tab { display: none; }
-    .tab.active { display: block; }
+    /* -------------------------
+       Reset y estilos globales
+    ------------------------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.5; }
 
-    /* HOME: miniaturas */
-    #home .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1.5rem;
-      justify-items: center;
-      align-items: center;
-    }
-    #home .thumb {
-      border: 3px solid #004080;
-      padding: 0.5rem;
+    /*  Header / Hero  */
+    header {
+      background: #004a8f; /* color de fondo azul */
+      color: white;
       text-align: center;
-      width: 120px;
+      padding: 2rem 1rem;
+    }
+    header h1 { font-size: 2rem; }
+
+    /*  Navegación  */
+    nav {
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      padding: 0.5rem;
       cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s;
+      position: relative;
     }
-    #home .thumb:hover {
-      transform: translateY(-4px);
-      border-color: #002040;
-    }
-    #home .thumb img {
+    nav button.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      height: auto;
+      height: 3px;
+      background: #004a8f;
+    }
+
+    /*  Secciones  */
+    main section {
+      display: none;
+      padding: 1.5rem;
+    }
+    main section.active {
       display: block;
     }
-    #home .thumb span {
+
+    /*  Miniaturas  */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .thumb {
+      text-align: center;
+      cursor: pointer;
+    }
+    .thumb img {
+      width: 100%;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      display: block;
+    }
+    .thumb span {
       display: block;
       margin-top: 0.5rem;
       font-weight: bold;
-      color: #004080;
     }
 
-    /* HISTORIA: imagen y texto */
-    section#history { display: flex; gap: 2rem; align-items: center; }
-    section#history img { max-width: 100%; height: auto; object-fit: contain; }
-    section#history div { flex: 1; text-align: justify; }
+    /*  Divisores y títulos  */
+    hr { border: none; border-top: 2px solid #ccc; margin: 2rem 0; }
+    h2 { margin-bottom: 0.5rem; color: #004a8f; }
+    p { margin-bottom: 1rem; }
+
   </style>
-  <script>
-    function showTab(id) {
-      document.querySelectorAll('main .tab').forEach(t => t.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('nav a, #home .thumb').forEach(el => {
-        el.addEventListener('click', e => {
-          e.preventDefault();
-          const target = el.getAttribute('href') || el.dataset.target;
-          showTab(target.replace('#',''));
-        });
-      });
-      // Muestra home al cargar
-      showTab('home');
-    });
-  </script>
 </head>
 <body>
-  <header id="hero">
-    <h1>I Memorial Bernat Peso – 02 de Julio de 2025 (Gavà)</h1>
+
+  <!-- HERO -->
+  <header>
+    <h1>I Memorial Bernat Peso</h1>
   </header>
 
+  <!-- MENÚ -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#history">Historia</a>
-    <a href="#reglamento">Reglamento</a>
-    <a href="#programa">Programa</a>
-    <a href="#gallery">Galería</a>
-    <a href="#contact">Contacto</a>
+    <button data-target="home" class="active">Inicio</button>
+    <button data-target="history">Historia</button>
+    <button data-target="reglamento">Reglamento</button>
+    <button data-target="programa">Programa</button>
+    <button data-target="gallery">Galería</button>
+    <button data-target="contact">Contacto</button>
   </nav>
 
+  <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <!-- SECCIÓN HOME -->
-    <section id="home" class="tab active">
+
+    <!-- SECCIÓN: INICIO -->
+    <section id="home" class="active">
       <div class="grid">
-        <div class="thumb" data-target="#history">
+        <div class="thumb" data-target="history">
           <img src="230610_165847_avap1213.jpg" alt="Historia">
           <span>Historia</span>
         </div>
-        <div class="thumb" data-target="#reglamento">
+        <div class="thumb" data-target="reglamento">
           <img src="230610_171222_avap1419.jpg" alt="Reglamento">
           <span>Reglamento</span>
         </div>
-        <div class="thumb" data-target="#programa">
+        <div class="thumb" data-target="programa">
           <img src="230610_172657_avap1512.jpg" alt="Programa">
           <span>Programa</span>
         </div>
-        <div class="thumb" data-target="#gallery">
+        <div class="thumb" data-target="gallery">
           <img src="230610_173735_avap1624.jpg" alt="Galería">
           <span>Galería</span>
         </div>
-        <div class="thumb" data-target="#contact">
+        <div class="thumb" data-target="contact">
           <img src="230610_174537_avap1700.jpg" alt="Contacto">
           <span>Contacto</span>
         </div>
       </div>
+
+      <hr>
+
+      <h2>1ª Edición del Meeting Bernat Peso</h2>
+      <p>
+        El 2 de julio de 2025 tendrá lugar el I Meeting Bernat Peso en el estadio de La Bòbila en Gavà, organizado por el Club Atletisme Gavà.
+      </p>
+
+      <hr>
+
+      <h2>Pruebas</h2>
+      <p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5 000, 110mv y longitud.</p>
+      <p><strong>Mujeres:</strong> 100, 200, 400, 800, 5 000, 100mv, martillo y longitud.</p>
     </section>
 
-    <!-- SECCIÓN HISTORIA -->
-    <section id="history" class="tab">
-      <div>
-        <img src="A_digital_illustration_depicts_a_light-skinned,_at.png"
-             alt="Bernat Peso ilustración" />
-      </div>
-      <div>
-        <p>
-          El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer.
-          Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.
-        </p>
-        <p>
-          Este I Meeting Bernat Peso es el heredero del Criterium de Velocidad que se lleva disputando desde 2017.
-          Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.
-        </p>
-      </div>
+    <!-- SECCIÓN: HISTORIA -->
+    <section id="history">
+      <h2>Historia</h2>
+      <p>
+        El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer.<br>
+        Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.
+      </p>
+      <p>
+        Este I Meeting Bernat Peso es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.
+      </p>
     </section>
 
-    <!-- SECCIÓN REGLAMENTO -->
-    <section id="reglamento" class="tab">
-      <!-- (contenido de reglamento.html) -->
+    <!-- SECCIÓN: REGLAMENTO -->
+    <section id="reglamento">
+      <h2>Reglamento</h2>
+      <p><strong>NORMAS GENERALES</strong></p>
+      <p>
+        El Club Atletismo Gavà con la autorización de la Federación Catalana de Atletismo y bajo el control del colegio de jueces de la Federación, organiza el I Memorial Bernat Peso a celebrarse el próximo día 02 de julio de 2025 en el Estadio Municipal La Bòbila de Gavà (Barcelona).
+      </p>
+      <ol>
+        <li><strong>Licencia.</strong> Todos los atletas tendrán que tener la correspondiente licencia federativa tramitada para la temporada en curso.</li>
+        <li><strong>Inscripciones.</strong> Deberán ser realizadas por el club del interesado a través del CALL ROOM de la RFEA. El plazo de inscripción finalizará el viernes 27 de junio de 2025. Pasado este plazo no se admitirá ninguna inscripción.<br>
+          Los managers que quieran solicitar participación de sus atletas deberán realizarlo a través del siguiente formulario:<br>
+          <em>FORMULARIO DE INSCRIPCIÓN</em><br>
+          Indicando:<br>
+          1. Prueba en la que desea participar<br>
+          2. Mejor marca 2024-2025<br>
+          3. Mejor marca personal<br>
+          4. Nombre y apellidos<br>
+          5. Fecha de nacimiento<br>
+          6. Documento de identidad<br>
+          7. Club/País al que pertenece<br>
+          No se aceptarán inscripciones por correo electrónico.
+        </li>
+        <li><strong>Lista de admitidos.</strong> Para establecer el corte y el orden de las series se observará escrupulosamente el ranking de marcas acreditado. Una vez finalizado el plazo de inscripciones, el club dará 48 h de margen para comunicar las bajas o incidencias al correo <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a>. El club hará pública la lista definitiva una vez cerrado el período de modificaciones.</li>
+        <li><strong>Participación en concursos.</strong> Máximo 12 atletas por concurso.</li>
+        <li><strong>Precio.</strong> 5 € por prueba, 8 € por dos o más con licencia FCA/RFEA. Los top 8 del ranking español 2025 exentos de pago. Transferencia bancaria 48 h antes a ES81 0081 1637 2800 01013403.</li>
+        <li><strong>Dorsales.</strong> Hasta 45 min antes de la prueba, previa identificación federativa.</li>
+        <li><strong>Listas de salida.</strong> Por marca y categoría. Confirmación 45 min antes. Disponibilidad juez 15 min antes.</li>
+        <li><strong>Jueces y cronometraje.</strong> Según reglamento RFEA. Cronometraje eléctrico.</li>
+        <li><strong>Reclamaciones.</strong> Ante Juez Árbitro en 30 min tras resultados, con depósito de 30 € (reembolsable si prospera). Decisión definitiva.</li>
+        <li><strong>Casos no previstos.</strong> WA, RFEA y Federación Catalana.</li>
+        <li><strong>Responsabilidad.</strong> Club y Federación no se hacen responsables de daños morales/materiales.</li>
+        <li><strong>Aceptación.</strong> Inscripción implica aceptación total del reglamento.</li>
+        <li><strong>Premios.</strong> Top 3 según tabla húngara: 1º 500 €, 2º 300 €, 3º 150 €. Optan todos los nacionales con licencia FCA/RFEA.<br>
+          Documentación (DNI/NIE o pasaporte + SEPA) a <a href="mailto:dt@clubatletismegavà.com">dt@clubatletismegavà.com</a> antes del 15 de julio. Pago en 15 días tras recepción.<br>
+        </li>
+        <li><strong>Impuestos.</strong> Retención IRPF 15 % para residentes en España.</li>
+      </ol>
     </section>
 
-    <!-- SECCIÓN PROGRAMA -->
-    <section id="programa" class="tab">
-      <!-- (contenido del programa) -->
+    <!-- SECCIÓN: PROGRAMA -->
+    <section id="programa">
+      <h2>Programa</h2>
+      <p>Contenido del programa (horarios y pruebas) …</p>
     </section>
 
-    <!-- SECCIÓN GALERÍA -->
-    <section id="gallery" class="tab">
-      <!-- (galería con lightbox) -->
+    <!-- SECCIÓN: GALERÍA -->
+    <section id="gallery">
+      <h2>Galería</h2>
+      <p>Miniaturas con lightbox …</p>
     </section>
 
-    <!-- SECCIÓN CONTACTO -->
-    <section id="contact" class="tab">
-      <!-- (datos de contacto) -->
+    <!-- SECCIÓN: CONTACTO -->
+    <section id="contact">
+      <h2>Contacto</h2>
+      <p>Correo: <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a></p>
     </section>
+
   </main>
+
+  <script>
+    // Manejo de pestañas (nav) y miniaturas
+    const tabs = document.querySelectorAll('nav button');
+    const sections = document.querySelectorAll('main section');
+    tabs.forEach(btn =>
+      btn.addEventListener('click', () => {
+        // actualización botón activo
+        tabs.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        // mostrar sección correspondiente
+        const target = btn.dataset.target;
+        sections.forEach(sec => {
+          sec.id === target
+            ? sec.classList.add('active')
+            : sec.classList.remove('active');
+        });
+      })
+    );
+    // miniaturas que también disparan el nav
+    document.querySelectorAll('.thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const tgt = thumb.dataset.target;
+        document.querySelector(`nav button[data-target="${tgt}"]`).click();
+      });
+    });
+  </script>
+
 </body>
 </html>
