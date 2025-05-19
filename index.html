@@ -109,6 +109,8 @@
     p {
       margin-bottom: 1rem;
     }
+    ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -116,23 +118,18 @@
       const sections = document.querySelectorAll('main section');
 
       function activate(tab) {
-        // activar botón
         buttons.forEach(b => b.classList.toggle('active', b.dataset.target === tab));
-        // mostrar sección
         sections.forEach(s => s.classList.toggle('active', s.id === tab));
       }
 
-      // evento click en nav
       buttons.forEach(btn => {
         btn.addEventListener('click', () => activate(btn.dataset.target));
       });
 
-      // miniaturas del Home
       document.querySelectorAll('#home .thumb').forEach(thumb => {
         thumb.addEventListener('click', () => activate(thumb.dataset.target));
       });
 
-      // mostrar Home por defecto
       activate('home');
     });
   </script>
@@ -157,7 +154,7 @@
   <!-- Contenido -->
   <main>
     <!-- Home -->
-    <section id="home">
+    <section id="home" class="active">
       <div class="grid">
         <div class="thumb" data-target="history">
           <img src="230610_165847_avap1213.jpg" alt="Historia">
@@ -213,25 +210,61 @@
     <!-- Reglamento -->
     <section id="reglamento">
       <h2>Reglamento</h2>
-      <!-- (Aquí iría el contenido completo del reglamento) -->
+      <p><strong>NORMAS GENERALES</strong></p>
+      <p>El Club Atletismo Gavà con la autorización de la Federación Catalana de Atletismo y bajo el control del colegio de jueces de la Federación, organiza el I Memorial Bernat Peso a celebrarse el próximo día <strong>02 de julio de 2025</strong> en el Estadio Municipal La Bòbila de Gavà (Barcelona).</p>
+      <ol>
+        <li><strong>Licencia.</strong> Todos los atletas tendrán que tener la correspondiente licencia federativa tramitada para la temporada en curso.</li>
+        <li><strong>Inscripciones.</strong> Deberán ser realizadas por el club del interesado a través del CALL ROOM de la RFEA. El plazo de inscripción finalizará el viernes 27 de junio de 2025. Pasado este plazo no se admitirá ninguna inscripción.<br>
+            Los managers que quieran solicitar participación de sus atletas deberán realizarlo a través del siguiente formulario: <em>FORMULARIO DE INSCRIPCIÓN</em><br>
+            Indicando:<br>
+            1. Prueba en la que desea participar<br>
+            2. Mejor marca 2024-2025<br>
+            3. Mejor Marca personal<br>
+            4. Nombre y apellidos<br>
+            5. Fecha de nacimiento<br>
+            6. Documento de identidad<br>
+            7. Club/País al que pertenece<br>
+            No se aceptarán inscripciones por correo electrónico.
+        </li>
+        <li><strong>Lista de admitidos.</strong> Para establecer el corte y el orden de las series se observará escrupulosamente el ranking de marcas acreditado. Una vez finalizado el plazo de inscripciones, el club dará 48 h de margen para comunicar las bajas o incidencias al correo <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a>. El club hará pública la lista definitiva una vez cerrado el período de modificaciones.</li>
+        <li><strong>Participación en concursos.</strong> Los concursos se limitarán a un máximo de 12 atletas.</li>
+        <li><strong>Precio.</strong> Para colaborar en sufragar los costes de la organización la inscripción tendrá un coste de: 5 € por prueba y 8 € por dos o más con licencia FCA o RFEA. Los atletas situados en los 8 primeros lugares del ranking español de la temporada 2025 no tendrán que pagar ninguna inscripción.<br>
+            Pago por transferencia bancaria, como máximo 48 h antes, a ES81 0081 1637 2800 01013403.
+        </li>
+        <li><strong>Dorsales.</strong> La entrega de dorsales se realizará hasta 45 min previos a la prueba, en lugar visible dentro del recinto, previa identificación federativa o DNI.</li>
+        <li><strong>Listas de salida.</strong> Se confeccionarán por marca y categoría. Confirmación 45 min antes. Disponibilidad juez 15 min antes.</li>
+        <li><strong>Jueces y cronometraje.</strong> Según reglamento RFEA, cronometraje eléctrico.</li>
+        <li><strong>Reclamaciones.</strong> Ante Juez Árbitro en 30 min tras resultados, con depósito de 30 € (reembolsable si prospera). Decisión definitiva.</li>
+        <li><strong>Casos no previstos.</strong> Se resolverán por normas WA, RFEA o Federación Catalana.</li>
+        <li><strong>Responsabilidad.</strong> Club y Federación no se hacen responsables de daños morales/materiales.</li>
+        <li><strong>Aceptación.</strong> La inscripción implica aceptación total del Reglamento.</li>
+        <li><strong>Premios.</strong> Se darán premios a los tres primeros según tabla húngara:<br>
+            • Primero: 500 €<br>
+            • Segundo: 300 €<br>
+            • Tercero: 150 €<br>
+            Optan todos los nacionales con licencia FCA o RFEA. La organización se reserva el derecho de modificar cuantías según inscritos/as.
+        </li>
+        <li><strong>Pago de los premios.</strong> Los ganadores enviarán al mail <a href="mailto:dt@clubatletismegava.com">dt@clubatletismegava.com</a> antes del 15 de julio: DNI/NIE o pasaporte y formulario SEPA. Pago en un plazo máximo de 15 días tras recibir la documentación.</li>
+        <li><strong>Impuestos.</strong> Retención IRPF 15 % para residentes en España.</li>
+      </ol>
     </section>
 
     <!-- Programa -->
     <section id="programa">
       <h2>Programa</h2>
-      <!-- (Aquí iría el contenido del programa) -->
+      <!-- Contenido del programa -->
     </section>
 
     <!-- Galería -->
     <section id="gallery">
       <h2>Galería</h2>
-      <!-- (Aquí iría la galería con lightbox) -->
+      <!-- Galería con lightbox -->
     </section>
 
     <!-- Contacto -->
     <section id="contact">
       <h2>Contacto</h2>
-      <!-- (Aquí irían los datos o formulario de contacto) -->
+      <p>Correo: <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a></p>
     </section>
   </main>
 
