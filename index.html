@@ -2,38 +2,38 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Memorial Bernat Peso</title>
   <style>
-    /* -------------------------
-       Reset y estilos globales
-    ------------------------- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; line-height: 1.5; }
 
-    /*  Header / Hero  */
-    header {
-      background: #004a8f; /* color de fondo azul */
+    /* Hero con fondo */
+    header#hero {
+      background: url('230610_165847_avap1213.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      text-align: center;
-      padding: 2rem 1rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
     }
-    header h1 { font-size: 2rem; }
+    header#hero h1 { font-size: 2.5rem; }
 
-    /*  Navegación  */
+    /* Navegación */
     nav {
-      background: #f0f0f0;
+      background: #004080;
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      padding: 0.5rem 1rem;
     }
     nav button {
       background: none;
       border: none;
-      font-size: 1rem;
-      padding: 0.5rem;
+      color: white;
+      padding: 1rem 1.5rem;
       cursor: pointer;
+      font-size: 1rem;
       position: relative;
     }
     nav button.active::after {
@@ -43,58 +43,110 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background: #004a8f;
+      background: #ffdd00;
     }
 
-    /*  Secciones  */
+    /* Secciones */
     main section {
       display: none;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
     }
     main section.active {
       display: block;
     }
 
-    /*  Miniaturas  */
-    .grid {
+    /* Miniaturas en Home */
+    #home .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 1rem;
       margin-bottom: 2rem;
     }
-    .thumb {
+    #home .thumb {
       text-align: center;
       cursor: pointer;
     }
-    .thumb img {
+    #home .thumb img {
       width: 100%;
       border: 2px solid #ccc;
       border-radius: 4px;
       display: block;
     }
-    .thumb span {
-      display: block;
+    #home .thumb span {
       margin-top: 0.5rem;
+      display: block;
       font-weight: bold;
+      color: #004080;
     }
 
-    /*  Divisores y títulos  */
-    hr { border: none; border-top: 2px solid #ccc; margin: 2rem 0; }
-    h2 { margin-bottom: 0.5rem; color: #004a8f; }
-    p { margin-bottom: 1rem; }
+    /* Bloques con imagen a la izquierda */
+    .feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .feature img {
+      width: 150px;
+      border: 2px solid #004080;
+      border-radius: 4px;
+    }
+    .feature .text {
+      flex: 1;
+      text-align: justify;
+    }
 
+    /* Divisores y títulos */
+    hr {
+      border: none;
+      border-top: 2px solid #ccc;
+      margin: 2rem 0;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #004080;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('nav button');
+      const sections = document.querySelectorAll('main section');
+
+      function activate(tab) {
+        // activar botón
+        buttons.forEach(b => b.classList.toggle('active', b.dataset.target === tab));
+        // mostrar sección
+        sections.forEach(s => s.classList.toggle('active', s.id === tab));
+      }
+
+      // evento click en nav
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => activate(btn.dataset.target));
+      });
+
+      // miniaturas del Home
+      document.querySelectorAll('#home .thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => activate(thumb.dataset.target));
+      });
+
+      // mostrar Home por defecto
+      activate('home');
+    });
+  </script>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header>
-    <h1>I Memorial Bernat Peso</h1>
+  <!-- Hero -->
+  <header id="hero">
+    <h1>I Memorial Bernat Peso – 02 de Julio de 2025 (Gavà)</h1>
   </header>
 
-  <!-- MENÚ -->
+  <!-- Navegación -->
   <nav>
-    <button data-target="home" class="active">Inicio</button>
+    <button data-target="home">Inicio</button>
     <button data-target="history">Historia</button>
     <button data-target="reglamento">Reglamento</button>
     <button data-target="programa">Programa</button>
@@ -102,11 +154,10 @@
     <button data-target="contact">Contacto</button>
   </nav>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- Contenido -->
   <main>
-
-    <!-- SECCIÓN: INICIO -->
-    <section id="home" class="active">
+    <!-- Home -->
+    <section id="home">
       <div class="grid">
         <div class="thumb" data-target="history">
           <img src="230610_165847_avap1213.jpg" alt="Historia">
@@ -132,115 +183,57 @@
 
       <hr>
 
-      <h2>1ª Edición del Meeting Bernat Peso</h2>
-      <p>
-        El 2 de julio de 2025 tendrá lugar el I Meeting Bernat Peso en el estadio de La Bòbila en Gavà, organizado por el Club Atletisme Gavà.
-      </p>
+      <div class="feature">
+        <img src="230610_165847_avap1213.jpg" alt="1ª Edición">
+        <div class="text">
+          <h2>1ª Edición del Meeting Bernat Peso</h2>
+          <p>El 2 de julio de 2025 tendrá lugar el I Meeting Bernat Peso en el estadio de La Bòbila en Gavà, organizado por el Club Atletisme Gavà.</p>
+        </div>
+      </div>
 
       <hr>
 
-      <h2>Pruebas</h2>
-      <p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5 000, 110mv y longitud.</p>
-      <p><strong>Mujeres:</strong> 100, 200, 400, 800, 5 000, 100mv, martillo y longitud.</p>
+      <div class="feature">
+        <img src="230610_171222_avap1419.jpg" alt="Pruebas">
+        <div class="text">
+          <h2>Pruebas</h2>
+          <p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5 000, 110mv y longitud.</p>
+          <p><strong>Mujeres:</strong> 100, 200, 400, 800, 5 000, 100mv, martillo y longitud.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- SECCIÓN: HISTORIA -->
+    <!-- Historia -->
     <section id="history">
       <h2>Historia</h2>
-      <p>
-        El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer.<br>
-        Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.
-      </p>
-      <p>
-        Este I Meeting Bernat Peso es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.
-      </p>
+      <p>El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer. Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.</p>
+      <p>Este I Meeting Bernat Peso es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.</p>
     </section>
 
-    <!-- SECCIÓN: REGLAMENTO -->
+    <!-- Reglamento -->
     <section id="reglamento">
       <h2>Reglamento</h2>
-      <p><strong>NORMAS GENERALES</strong></p>
-      <p>
-        El Club Atletismo Gavà con la autorización de la Federación Catalana de Atletismo y bajo el control del colegio de jueces de la Federación, organiza el I Memorial Bernat Peso a celebrarse el próximo día 02 de julio de 2025 en el Estadio Municipal La Bòbila de Gavà (Barcelona).
-      </p>
-      <ol>
-        <li><strong>Licencia.</strong> Todos los atletas tendrán que tener la correspondiente licencia federativa tramitada para la temporada en curso.</li>
-        <li><strong>Inscripciones.</strong> Deberán ser realizadas por el club del interesado a través del CALL ROOM de la RFEA. El plazo de inscripción finalizará el viernes 27 de junio de 2025. Pasado este plazo no se admitirá ninguna inscripción.<br>
-          Los managers que quieran solicitar participación de sus atletas deberán realizarlo a través del siguiente formulario:<br>
-          <em>FORMULARIO DE INSCRIPCIÓN</em><br>
-          Indicando:<br>
-          1. Prueba en la que desea participar<br>
-          2. Mejor marca 2024-2025<br>
-          3. Mejor marca personal<br>
-          4. Nombre y apellidos<br>
-          5. Fecha de nacimiento<br>
-          6. Documento de identidad<br>
-          7. Club/País al que pertenece<br>
-          No se aceptarán inscripciones por correo electrónico.
-        </li>
-        <li><strong>Lista de admitidos.</strong> Para establecer el corte y el orden de las series se observará escrupulosamente el ranking de marcas acreditado. Una vez finalizado el plazo de inscripciones, el club dará 48 h de margen para comunicar las bajas o incidencias al correo <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a>. El club hará pública la lista definitiva una vez cerrado el período de modificaciones.</li>
-        <li><strong>Participación en concursos.</strong> Máximo 12 atletas por concurso.</li>
-        <li><strong>Precio.</strong> 5 € por prueba, 8 € por dos o más con licencia FCA/RFEA. Los top 8 del ranking español 2025 exentos de pago. Transferencia bancaria 48 h antes a ES81 0081 1637 2800 01013403.</li>
-        <li><strong>Dorsales.</strong> Hasta 45 min antes de la prueba, previa identificación federativa.</li>
-        <li><strong>Listas de salida.</strong> Por marca y categoría. Confirmación 45 min antes. Disponibilidad juez 15 min antes.</li>
-        <li><strong>Jueces y cronometraje.</strong> Según reglamento RFEA. Cronometraje eléctrico.</li>
-        <li><strong>Reclamaciones.</strong> Ante Juez Árbitro en 30 min tras resultados, con depósito de 30 € (reembolsable si prospera). Decisión definitiva.</li>
-        <li><strong>Casos no previstos.</strong> WA, RFEA y Federación Catalana.</li>
-        <li><strong>Responsabilidad.</strong> Club y Federación no se hacen responsables de daños morales/materiales.</li>
-        <li><strong>Aceptación.</strong> Inscripción implica aceptación total del reglamento.</li>
-        <li><strong>Premios.</strong> Top 3 según tabla húngara: 1º 500 €, 2º 300 €, 3º 150 €. Optan todos los nacionales con licencia FCA/RFEA.<br>
-          Documentación (DNI/NIE o pasaporte + SEPA) a <a href="mailto:dt@clubatletismegavà.com">dt@clubatletismegavà.com</a> antes del 15 de julio. Pago en 15 días tras recepción.<br>
-        </li>
-        <li><strong>Impuestos.</strong> Retención IRPF 15 % para residentes en España.</li>
-      </ol>
+      <!-- (Aquí iría el contenido completo del reglamento) -->
     </section>
 
-    <!-- SECCIÓN: PROGRAMA -->
+    <!-- Programa -->
     <section id="programa">
       <h2>Programa</h2>
-      <p>Contenido del programa (horarios y pruebas) …</p>
+      <!-- (Aquí iría el contenido del programa) -->
     </section>
 
-    <!-- SECCIÓN: GALERÍA -->
+    <!-- Galería -->
     <section id="gallery">
       <h2>Galería</h2>
-      <p>Miniaturas con lightbox …</p>
+      <!-- (Aquí iría la galería con lightbox) -->
     </section>
 
-    <!-- SECCIÓN: CONTACTO -->
+    <!-- Contacto -->
     <section id="contact">
       <h2>Contacto</h2>
-      <p>Correo: <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a></p>
+      <!-- (Aquí irían los datos o formulario de contacto) -->
     </section>
-
   </main>
-
-  <script>
-    // Manejo de pestañas (nav) y miniaturas
-    const tabs = document.querySelectorAll('nav button');
-    const sections = document.querySelectorAll('main section');
-    tabs.forEach(btn =>
-      btn.addEventListener('click', () => {
-        // actualización botón activo
-        tabs.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        // mostrar sección correspondiente
-        const target = btn.dataset.target;
-        sections.forEach(sec => {
-          sec.id === target
-            ? sec.classList.add('active')
-            : sec.classList.remove('active');
-        });
-      })
-    );
-    // miniaturas que también disparan el nav
-    document.querySelectorAll('.thumb').forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        const tgt = thumb.dataset.target;
-        document.querySelector(`nav button[data-target="${tgt}"]`).click();
-      });
-    });
-  </script>
 
 </body>
 </html>
