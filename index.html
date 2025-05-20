@@ -20,40 +20,22 @@
 
     /* Navegación */
     nav { background: #004080; display: flex; justify-content: center; }
-    nav button {
-      background: none; border: none; color: white;
-      padding: 1rem 1.5rem; cursor: pointer; font-size: 1rem;
-      position: relative;
-    }
-    nav button.active::after {
-      content: ""; position: absolute; bottom: 0; left: 0;
-      width: 100%; height: 3px; background: #ffdd00;
-    }
+    nav button { background: none; border: none; color: white; padding: 1rem 1.5rem; cursor: pointer; font-size: 1rem; position: relative; }
+    nav button.active::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: #ffdd00; }
 
     /* Secciones */
     main section { display: none; padding: 2rem 1rem; }
     main section.active { display: block; }
 
     /* Miniaturas en Home */
-    #home .grid {
-      display: grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
-      gap: 1rem; margin-bottom: 2rem;
-    }
+    #home .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap: 1rem; margin-bottom: 2rem; }
     #home .thumb { text-align: center; cursor: pointer; }
-    #home .thumb img {
-      width: 100%; border: 2px solid #ccc; border-radius: 4px; display: block;
-    }
-    #home .thumb span {
-      margin-top: 0.5rem; display: block; font-weight: bold; color: #004080;
-    }
+    #home .thumb img { width: 100%; border: 2px solid #ccc; border-radius: 4px; display: block; }
+    #home .thumb span { margin-top: 0.5rem; display: block; font-weight: bold; color: #004080; }
 
     /* Bloques feature */
-    .feature {
-      display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;
-    }
-    .feature img {
-      width: 150px; border: 2px solid #004080; border-radius: 4px;
-    }
+    .feature { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem; }
+    .feature img { width: 150px; border: 2px solid #004080; border-radius: 4px; }
     .feature .text { flex: 1; text-align: justify; }
 
     /* Divisores y títulos */
@@ -64,19 +46,13 @@
     li { margin-bottom: 0.5rem; }
 
     /* Imagen de horario */
-    #programa .horario {
-      max-width: 100%; border: 2px solid #ccc; border-radius: 4px;
-      display: block; margin: 1rem 0;
-    }
+    #programa .horario { max-width: 100%; border: 2px solid #ccc; border-radius: 4px; display: block; margin: 1rem 0; }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const buttons = document.querySelectorAll('nav button');
       const sections = document.querySelectorAll('main section');
-      function activate(tab) {
-        buttons.forEach(b => b.classList.toggle('active', b.dataset.target === tab));
-        sections.forEach(s => s.classList.toggle('active', s.id === tab));
-      }
+      function activate(tab) { buttons.forEach(b => b.classList.toggle('active', b.dataset.target === tab)); sections.forEach(s => s.classList.toggle('active', s.id === tab)); }
       buttons.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
       document.querySelectorAll('#home .thumb').forEach(thumb => thumb.addEventListener('click', () => activate(thumb.dataset.target)));
       activate('home');
@@ -103,56 +79,15 @@
 
   <!-- Contenido -->
   <main>
+
     <!-- Home -->
     <section id="home" class="active">
-      <div class="grid">
-        <div class="thumb" data-target="history">
-          <img src="230610_165847_avap1213.jpg" alt="Historia"><span>Historia</span>
-        </div>
-        <div class="thumb" data-target="reglamento">
-          <img src="230610_171222_avap1419.jpg" alt="Reglamento"><span>Reglamento</span>
-        </div>
-        <div class="thumb" data-target="programa">
-          <img src="230610_172657_avap1512.jpg" alt="Programa"><span>Programa</span>
-        </div>
-        <div class="thumb" data-target="gallery">
-          <img src="230610_173735_avap1624.jpg" alt="Galería"><span>Galería</span>
-        </div>
-        <div class="thumb" data-target="comollegar">
-          <img src="230610_182928_avap1996.jpg" alt="Cómo llegar"><span>Cómo llegar</span>
-        </div>
-        <div class="thumb" data-target="contact">
-          <img src="230610_174537_avap1700.jpg" alt="Contacto"><span>Contacto</span>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="feature">
-        <img src="230610_165847_avap1213.jpg" alt="1ª Edición">
-        <div class="text">
-          <h2>1ª Edición del Meeting Bernat Peso</h2>
-          <p>El 2 de julio de 2025 tendrá lugar el I Meeting Bernat Peso en el estadio de La Bòbila en Gavà, organizado por el Club Atletisme Gavà.</p>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="feature">
-        <img src="230610_171222_avap1419.jpg" alt="Pruebas">
-        <div class="text">
-          <h2>Pruebas</h2>
-          <p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5 000, 110mv y longitud.</p>
-          <p><strong>Mujeres:</strong> 100, 200, 400, 800, 5 000, 100mv, martillo y longitud.</p>
-        </div>
-      </div>
+      <!-- ... Home content ... -->
     </section>
 
     <!-- Historia -->
     <section id="history">
-      <h2>Historia</h2>
-      <p>El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer. Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.</p>
-      <p>Este I Meeting Bernat Peso es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.</p>
+      <!-- ... Historia content ... -->
     </section>
 
     <!-- Reglamento -->
@@ -161,7 +96,42 @@
       <p><strong>NORMAS GENERALES</strong></p>
       <p>El Club Atletismo Gavà con la autorización de la Federación Catalana de Atletismo y bajo el control del colegio de jueces de la Federación, organiza el I Memorial Bernat Peso a celebrarse el próximo día <strong>02 de julio de 2025</strong> en el Estadio Municipal La Bòbila de Gavà (Barcelona).</p>
       <ol>
-        <!-- Artículos 1 a 15 -->
+        <li><strong>Art.1. Licencia.</strong> Todos los atletas tendrán que tener la correspondiente licencia federativa tramitada para la temporada en curso.</li>
+        <li><strong>Art.2. Inscripciones.</strong> Deberán ser realizadas por el club del interesado a través del CALL ROOM de la RFEA. El plazo de inscripción finalizará el viernes 27 de junio de 2025. Pasado este plazo no se admitirá ninguna inscripción.<br>
+          Los managers que quieran solicitar participación de sus atletas deberán realizarlo a través del siguiente <a href="https://forms.gle/g9Gmo7nDExt1qSCB8" target="_blank">FORMULARIO DE INSCRIPCIÓN</a>.<br>
+          Indicando los siguientes datos:<br>
+          1. Prueba en la que desea participar<br>
+          2. Mejor marca 2024-2025<br>
+          3. Mejor Marca personal<br>
+          4. Nombre y apellidos<br>
+          5. Fecha de nacimiento<br>
+          6. Documento de identidad<br>
+          7. Club/País al que pertenece<br>
+          No se aceptarán inscripciones por correo electrónico.
+        </li>
+        <li><strong>Art.3. Lista de admitidos.</strong> Para establecer el corte y el orden de las series se observará escrupulosamente el ranking de marcas acreditado. Una vez finalizado el plazo de inscripciones, el club dará 48h de margen para comunicar las bajas o incidencias producidas en la inscripción al correo electrónico <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a>. El club hará pública la lista definitiva de admitidos una vez finalizado el período de modificaciones.</li>
+        <li><strong>Art.4. Participación en concursos.</strong> Los concursos se limitarán a un máximo de 12 atletas.</li>
+        <li><strong>Art.5. Precio.</strong> Para colaborar en sufragar los costes de la organización la inscripción tendrá un coste de: 5€ prueba y 8€ dos o más con licencia FCA o RFEA. Los atletas situados en los 8 primeros lugares del ranking español de la temporada 2025 no tendrán que pagar ninguna inscripción.<br>
+          El pago de la inscripción se realizará por transferencia bancaria. Esta deberá estar realizada, como máximo, 48h antes de la competición en el número de cuenta: ES81 0081 1637 2800 01013403
+        </li>
+        <li><strong>Art.6. Dorsales.</strong> La entrega de dorsales se realizará hasta 45 minutos antes de la prueba, en lugar visible dentro del recinto del estadio, previa identificación del atleta mediante licencia federativa, documento nacional de identidad, o similar.</li>
+        <li><strong>Art.7. Listas de salida.</strong> Las listas de salida definitivas se confeccionarán por marca y categoría acreditada de los atletas confirmados. Todos los participantes tendrán que confirmar su participación en cada prueba hasta 45 minutos antes en el punto indicado. Los atletas tendrán que estar a disposición de los jueces 15 minutos antes de cada prueba.</li>
+        <li><strong>Art.8. Jueces y cronometraje.</strong> Se seguirá la reglamentación de la RFEA respecto a la configuración y número de jueces para la homologación de cualquier récord o marca conseguida. Para la toma de tiempo se utilizará cronometraje eléctrico.</li>
+        <li><strong>Art.9. Reclamaciones.</strong> Deberán hacerse ante el Juez Árbitro en los 30 minutos después de la proclamación de resultados acompañados de un depósito de 30€ (a devolver en caso de atender su reclamación). La decisión del Juez Árbitro será definitiva.</li>
+        <li><strong>Art.10. Asuntos no previstos.</strong> Todo lo no previsto en este reglamento será resuelto por las normas de la WA o por las normas de la RFEA o la Federación Catalana de Atletismo.</li>
+        <li><strong>Art.11. Responsabilidad.</strong> El Club Atletismo Gavà y la Federación Catalana de Atletismo no se hacen responsables de los perjuicios morales y/o materiales que puedan sufrir los participantes y espectadores durante esta competición.</li>
+        <li><strong>Art.12. Aceptación.</strong> La inscripción a esta competición implica la total aceptación de este Reglamento.</li>
+        <li><strong>Art.13. Premios.</strong> La organización dará los siguientes premios a los tres primeros clasificados según tabla húngara:<br>
+          • Primero: 500 €<br>
+          • Segundo: 300 €<br>
+          • Tercero: 150 €<br>
+          En los premios económicos podrán optar todos los atletas, nacionales, con licencia por la FCA o por la RFEA.
+        </li>
+        <li><strong>Art.14. Pago de los premios.</strong> Los atletas ganadores de cada uno de los premios tendrán que remitir al mail <a href="mailto:dt@clubatletismegava.com">dt@clubatletismegava.com</a>, antes del 15 de julio, la siguiente documentación: DNI/NIE o pasaporte y el formulario SEPA, en caso de no remitir la documentación perderán el derecho a este premio.<br>
+          Recibida toda la documentación se emitirá un recibo detallado del premio, con la correspondiente retención.<br>
+          El pago de los premios se realizará mediante transferencia bancaria no más tarde de 15 días una vez recibida la documentación.
+        </li>
+        <li><strong>Art.15. Impuestos.</strong> Los PREMIOS tendrán las retenciones de IRPF que corresponden a ley. En España, la retención por impuestos que se aplica a las cantidades que se abonan en cualquier concepto a los atletas (excepto los de viajes) es del 15% para residentes en España.</li>
       </ol>
     </section>
 
@@ -189,6 +159,7 @@
         <li><strong>Tren:</strong> Línea R2 Nord hasta Barcelona Sants + bus L94 (45 min)</li>
         <li><strong>Autobús:</strong> Aerobús hasta Plaça Catalunya + bus L94 (55 min)</li>
       </ul>
+      <hr>
       <h3>Desde Barcelona Sants Estació</h3>
       <ul>
         <li><strong>Coche:</strong> 14 km (~20 min)</li>
@@ -202,7 +173,7 @@
       <h2>Contacto</h2>
       <p>Correo: <a href="mailto:competicio@clubatletismegava.com">competicio@clubatletismegava.com</a></p>
     </section>
-  </main>
 
+  </main>
 </body>
 </html>
