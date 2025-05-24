@@ -3,115 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I Memorial Bernat Peso</title>
+  <title>I Meeting Bernat Peso</title>
   <style>
     /* Reset básico */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; line-height: 1.5; }
 
     /* Hero */
-    #hero {
-      background: url('230610_190144_avap2475.jpg') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-    }
-    #hero h1 { font-size: 2.5rem; }
+    #hero { background: url('230610_190144_avap2475.jpg') center/cover; height:60vh; display:flex; align-items:center; justify-content:center; color:#fff; }
+    #hero h1 { font-size:2.5rem; }
 
-    /* Navegación */
-    nav { background: #004080; }
-    nav ul { list-style: none; display: flex; justify-content: center; }
-    nav li { margin: 0 1rem; }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 1rem;
-      display: block;
-    }
-    nav a:hover { background: rgba(255,255,255,0.1); }
+    /* Nav */
+    nav ul { display:flex; list-style:none; background:#004080; }
+    nav li { flex:1; text-align:center; }
+    nav a { display:block; padding:1rem; color:#fff; text-decoration:none; }
 
-    /* Secciones */
-    main section { display: none; padding: 2rem 1rem; }
-    main section.active { display: block; }
+    /* Sections */
+    section { padding:2rem 1rem; }
+    #inicio .thumbnails { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:1rem; margin-bottom:2rem; }
+    .thumbnails a { text-align:center; color:#004080; text-decoration:none; }
+    .thumbnails img { width:100%; border:2px solid #ccc; border-radius:4px; }
+    .intro, .pruebas { margin-bottom:2rem; }
 
-    /* Inicio: miniaturas */
-    #home .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    #home .thumb {
-      text-align: center;
-    }
-    #home .thumb img {
-      width: 100%;
-      border: 2px solid #ccc;
-      border-radius: 4px;
-    }
-    #home .thumb span {
-      display: block;
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: #004080;
-    }
+    /* Historia */
+    #historia .feature { display:flex; gap:1rem; align-items:flex-start; }
+    #historia img { width:150px; border:2px solid #004080; border-radius:4px; }
+    #historia .text { flex:1; text-align:justify; }
 
-    /* Bloques feature */
-    .feature {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-    }
-    .feature img {
-      width: 150px;
-      border: 2px solid #004080;
-      border-radius: 4px;
-    }
-    .feature .text {
-      flex: 1;
-      text-align: justify;
-    }
+    /* Reglamento */
+    #reglamento { text-align:justify; }
+    #reglamento ol { margin-left:1.5rem; }
 
-    hr {
-      border: none;
-      border-top: 2px solid #ccc;
-      margin: 2rem 0;
-    }
+    /* Programa */
+    #programa img { max-width:100%; border:2px solid #ccc; border-radius:4px; display:block; margin:1rem auto; }
+
+    /* Cómo llegar */
+    #comollegar iframe { width:100%; height:300px; border:0; margin-bottom:1rem; }
+    #comollegar ul { margin-left:1.5rem; list-style:disc; }
+
+    /* Contacto */
+    #contacto p { margin-bottom:1rem; }
+
+    /* Footer */
+    footer { background:#f1f1f1; padding:1rem; text-align:center; }
+    footer .patrocinadores img { max-height:50px; margin:0 1rem; }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('nav a');
-      const secs = document.querySelectorAll('main section');
-      function show(id) {
-        secs.forEach(s => s.id === id
-          ? s.classList.add('active')
-          : s.classList.remove('active'));
-      }
-      links.forEach(a => a.addEventListener('click', e => {
-        e.preventDefault();
-        show(a.getAttribute('href').substring(1));
-      }));
-      // inicial
-      show('home');
-    });
-  </script>
 </head>
 <body>
-
-  <!-- Hero -->
   <header id="hero">
-    <h1>I Memorial Bernat Peso</h1>
+    <h1>I Meeting Bernat Peso</h1>
   </header>
 
-  <!-- Navegación -->
   <nav>
     <ul>
-      <li><a href="#home">Inicio</a></li>
-      <li><a href="#history">Historia</a></li>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#historia">Historia</a></li>
       <li><a href="#reglamento">Reglamento</a></li>
       <li><a href="#programa">Programa</a></li>
       <li><a href="#comollegar">Cómo llegar</a></li>
@@ -121,93 +67,96 @@
 
   <main>
     <!-- Inicio -->
-    <section id="home" class="active">
-      <div class="grid">
-        <div class="thumb">
-          <a href="#history">
-            <img src="230610_165847_avap1213.jpg" alt="Historia">
-            <span>Historia</span>
-          </a>
-        </div>
-        <div class="thumb">
-          <a href="#reglamento">
-            <img src="230610_171222_avap1419.jpg" alt="Reglamento">
-            <span>Reglamento</span>
-          </a>
-        </div>
-        <div class="thumb">
-          <a href="#programa">
-            <img src="230610_172657_avap1512.jpg" alt="Programa">
-            <span>Programa</span>
-          </a>
-        </div>
-        <div class="thumb">
-          <a href="#gallery">
-            <img src="230610_173735_avap1624.jpg" alt="Galería">
-            <span>Galería</span>
-          </a>
-        </div>
-        <div class="thumb">
-          <a href="#comollegar">
-            <img src="230610_182928_avap1996.jpg" alt="Cómo llegar">
-            <span>Cómo llegar</span>
-          </a>
-        </div>
-        <div class="thumb">
-          <a href="#contacto">
-            <img src="230610_174537_avap1700.jpg" alt="Contacto">
-            <span>Contacto</span>
-          </a>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="feature">
-        <img src="230610_165847_avap1213.jpg" alt="1ª Edición">
-        <div class="text">
-          <h2>1ª Edición del Meeting Bernat Peso</h2>
-          <p>El 2 de julio de 2025 tendrá lugar el I Meeting Bernat Peso en el estadio de La Bòbila en Gavà, organizado por el Club Atletisme Gavà.</p>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="feature">
-        <img src="230610_171222_avap1419.jpg" alt="Pruebas">
-        <div class="text">
-          <h2>Pruebas</h2>
-          <p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5 000, 110 mv y longitud.</p>
-          <p><strong>Mujeres:</strong> 100, 200, 400, 800, 5 000, 100 mv, martillo y longitud.</p>
-        </div>
+    <section id="inicio">
+      <div class="thumbnails">
+        <a href="#historia"><img src="230610_165847_avap1213.jpg" alt="Historia"/><span>Historia</span></a>
+        <a href="#reglamento"><img src="I Memorial Bernat Peso_ESP.pdf.png" alt="Reglamento"/><span>Reglamento</span></a>
+        <a href="#programa"><img src="horario.png" alt="Programa"/><span>Programa</span></a>
+        <a href="#comollegar"><img src="map-thumbnail.png" alt="Cómo llegar"/><span>Cómo llegar</span></a>
+        <a href="#contacto"><img src="contacto-icon.png" alt="Contacto"/><span>Contacto</span></a>
       </div>
     </section>
 
     <!-- Historia -->
-    <section id="history">
-      <!-- contenido pendiente -->
+    <section id="historia">
+      <h2>Historia</h2>
+      <p>El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer. Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.</p>
+      <p>Este I Meeting Bernat Peso, es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.</p>
     </section>
 
     <!-- Reglamento -->
     <section id="reglamento">
-      <!-- contenido pendiente -->
+      <h2>Reglamento</h2>
+      <p><strong>NORMAS GENERALES</strong></p>
+      <p>El Club Atletismo Gavà con la autorización de la Federación Catalana de Atletismo y bajo el control del colegio de jueces de la Federación, organiza el I Memorial Bernat Peso a celebrarse el próximo día <strong>02 de julio de 2025</strong> en el Estadio Municipal La Bòbila de Gavà (Barcelona).</p>
+      <ol>
+        <li><strong>Art.1. Licencia.</strong> Todos los atletas tendrán que tener la correspondiente licencia federativa tramitada para la temporada en curso.</li>
+        <li><strong>Art.2. Inscripciones.</strong> Deberán ser realizadas por el club del interesado a través del CALL ROOM de la RFEA. El plazo de inscripción finalizará el viernes 27 de junio de 2025. Pasado este plazo no se admitirá ninguna inscripción.<br>
+           Los managers que quieran solicitar participación de sus atletas deberán realizarlo a través del siguiente <a href="https://forms.gle/g9Gmo7nDExt1qSCB8" target="_blank">FORMULARIO DE INSCRIPCIÓN</a>, indicando:<br>
+           1. Prueba en la que desea participar<br>
+           2. Mejor marca 2024-2025<br>
+           3. Mejor marca personal<br>
+           4. Nombre y apellidos<br>
+           5. Fecha de nacimiento<br>
+           6. Documento de identidad<br>
+           7. Club/País al que pertenece<br>
+           No se aceptarán inscripciones por correo electrónico.
+        </li>
+        <li><strong>Art.3. Lista de admitidos.</strong> Para establecer el corte y el orden de las series se observará escrupulosamente el ranking de marcas acreditado. Una vez finalizado el plazo de inscripciones, el club dará 48h de margen para comunicar las bajas o incidencias producidas en la inscripción al correo electrónico <a href="mailto:competicio@clubatletismegavà.com">competicio@clubatletismegavà.com</a>. El club hará pública la lista definitiva de admitidos una vez finalizado el período de modificaciones.</li>
+        <li><strong>Art.4. Participación en concursos.</strong> Los concursos se limitarán a un máximo de 12 atletas.</li>
+        <li><strong>Art.5. Precio.</strong> Para colaborar en sufragar los costes de la organización la inscripción tendrá un coste de: 5€ por prueba y 8€ por dos o más con licencia FCA o RFEA. Los atletas situados en los 8 primeros lugares del ranking español de la temporada 2025 no tendrán que pagar inscripción.<br>
+           El pago de la inscripción se realizará por transferencia bancaria. Esta deberá estar realizada, como máximo, 48h antes de la competición en el número de cuenta: <strong>ES81 0081 1637 2800 01013403</strong>
+        </li>
+        <li><strong>Art.6. Dorsales.</strong> La entrega de dorsales se realizará hasta 45 minutos antes de la prueba, en lugar visible dentro del recinto del estadio, previa identificación de la licencia federativa, DNI u otro documento.</li>
+        <li><strong>Art.7. Listas de salida.</strong> Las listas de salida definitivas se confeccionarán por marca y categoría acreditada de los atletas confirmados. Todos los participantes deberán confirmar su participación en cada prueba hasta 45 minutos antes en el punto indicado y estar a disposición de los jueces 15 minutos antes de cada prueba.</li>
+        <li><strong>Art.8. Jueces y cronometraje.</strong> Se seguirá la reglamentación de la RFEA para configuración y número de jueces. Se empleará cronometraje electrónico.</li>
+        <li><strong>Art.9. Reclamaciones.</strong> Deberán presentarse al Juez Árbitro en los 30 minutos posteriores a la publicación de resultados, acompañadas de un depósito de 30€ (reembolsable si se acepta la reclamación). La decisión del Juez Árbitro será inapelable.</li>
+        <li><strong>Art.10. Asuntos no previstos.</strong> Todo lo no previsto se resolverá conforme a las normas de World Athletics, RFEA o Federación Catalana.</li>
+        <li><strong>Art.11. Responsabilidad.</strong> El Club Atletismo Gavà y la Federación Catalana no se hacen responsables de daños materiales o morales de atletas o espectadores.</li>
+        <li><strong>Art.12. Aceptación.</strong> La inscripción implica plena aceptación de este reglamento.</li>
+        <li><strong>Art.13. Premios.</strong> Premios a tres primeros conforme a tabla húngara:<br>
+          • 1º — 500€<br>
+          • 2º — 300€<br>
+          • 3º — 150€<br>
+          Optan todos los atletas nacionales con licencia FCA o RFEA. La organización puede modificar cuantías y categorías según inscritos y notificará junto con el horario y lista definitiva.
+        </li>
+        <li><strong>Art.14. Pago de premios.</strong> Ganadores deberán remitir a <a href="mailto:dt@clubatletismegava.com">dt@clubatletismegava.com</a> antes del 15 de julio DNI/NIE o pasaporte y formulario SEPA. Perderá el derecho quien no lo haga. Se emitirá recibo y se transferirá en 15 días tras recepción.</li>
+        <li><strong>Art.15. Impuestos.</strong> Premios sujetos a retención IRPF (15% residentes). Obligatorio certificado de residencia fiscal para extranjeros.</li>
+      </ol>
     </section>
 
     <!-- Programa -->
     <section id="programa">
-      <!-- contenido pendiente -->
+      <h2>Horario</h2>
+      <img src="horario.png" alt="Horario de la Competición" class="horario" />
     </section>
 
     <!-- Cómo llegar -->
     <section id="comollegar">
-      <!-- contenido pendiente -->
+      <h2>Cómo llegar</h2>
+      <ul>
+        <li><strong>Desde Aeropuerto del Prat:</strong> Coche 20km/25min, Tren R2+L94 45min, Autobús Aerobús+L94 55min</li>
+        <li><strong>Desde Barcelona Sants:</strong> Coche 14km/20min, Tren R2+10min pie 30min, Autobús L94 35min</li>
+      </ul>
     </section>
 
     <!-- Contacto -->
     <section id="contacto">
-      <!-- contenido pendiente -->
+      <h2>Contacto</h2>
+      <p>Email: <a href="mailto:competicio@clubatletismegavà.com">competicio@clubatletismegavà.com</a></p>
     </section>
   </main>
 
+  <!-- Footer -->
+  <footer>
+    <div class="patrocinadores">
+      <h3>Patrocinadores</h3>
+      <img src="patrocinador_club.jpeg" alt="Patrocinador Club"/>
+      <img src="ajuntament gava.png" alt="Ajuntament de Gavà"/>
+    </div>
+    <div class="info-club">
+      <p>Visita nuestro club: <a href="https://www.clubatletismegava.com" target="_blank">clubatletismegavà.com</a></p>
+    </div>
+  </footer>
 </body>
 </html>
