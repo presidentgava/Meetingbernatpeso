@@ -3,61 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I Meeting Bernat Peso</title>
+  <title>I Memorial Bernat Peso</title>
   <style>
     /* Reset básico */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; line-height: 1.5; }
 
     /* Hero */
-    #hero { background: url('230610_190144_avap2475.jpg') center/cover; height:60vh; display:flex; align-items:center; justify-content:center; color:#fff; }
-    #hero h1 { font-size:2.5rem; }
+    #hero {
+      background: url('230610_190144_avap2475.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    #hero h1 { font-size: 2.5rem; }
 
-    /* Nav */
-    nav ul { display:flex; list-style:none; background:#004080; }
-    nav li { flex:1; text-align:center; }
-    nav a { display:block; padding:1rem; color:#fff; text-decoration:none; }
+    /* Navegación */
+    nav { background: #004080; }
+    nav ul { list-style: none; display: flex; justify-content: center; }
+    nav li { margin: 0 1rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem;
+      display: block;
+    }
+    nav a:hover { background: rgba(255,255,255,0.1); }
 
-    /* Sections */
-    section { padding:2rem 1rem; }
-    #inicio .thumbnails { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:1rem; margin-bottom:2rem; }
-    .thumbnails a { text-align:center; color:#004080; text-decoration:none; }
-    .thumbnails img { width:100%; border:2px solid #ccc; border-radius:4px; }
-    .intro, .pruebas { margin-bottom:2rem; }
+    /* Secciones */
+    main section { display: none; padding: 2rem 1rem; }
+    main section.active { display: block; }
 
-    /* Historia */
-    #historia .feature { display:flex; gap:1rem; align-items:flex-start; }
-    #historia img { width:150px; border:2px solid #004080; border-radius:4px; }
-    #historia .text { flex:1; text-align:justify; }
+    /* Inicio: miniaturas */
+    #home .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    #home .thumb {
+      text-align: center;
+    }
+    #home .thumb img {
+      width: 100%;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    #home .thumb span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #004080;
+    }
 
-    /* Reglamento */
-    #reglamento { text-align:justify; }
-    #reglamento ol { margin-left:1.5rem; }
+    /* Bloques feature */
+    .feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .feature img {
+      width: 150px;
+      border: 2px solid #004080;
+      border-radius: 4px;
+    }
+    .feature .text {
+      flex: 1;
+      text-align: justify;
+    }
 
-    /* Programa */
-    #programa img { max-width:100%; border:2px solid #ccc; border-radius:4px; display:block; margin:1rem auto; }
-
-    /* Cómo llegar */
-    #comollegar iframe { width:100%; height:300px; border:0; margin-bottom:1rem; }
-    #comollegar ul { margin-left:1.5rem; list-style:disc; }
-
-    /* Contacto */
-    #contacto p { margin-bottom:1rem; }
-
-    /* Footer */
-    footer { background:#f1f1f1; padding:1rem; text-align:center; }
-    footer .patrocinadores img { max-height:50px; margin:0 1rem; }
+    hr {
+      border: none;
+      border-top: 2px solid #ccc;
+      margin: 2rem 0;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('nav a');
+      const secs = document.querySelectorAll('main section');
+      function show(id) {
+        secs.forEach(s => s.id === id
+          ? s.classList.add('active')
+          : s.classList.remove('active'));
+      }
+      links.forEach(a => a.addEventListener('click', e => {
+        e.preventDefault();
+        show(a.getAttribute('href').substring(1));
+      }));
+      // inicial
+      show('home');
+    });
+  </script>
 </head>
 <body>
+
+  <!-- Hero -->
   <header id="hero">
-    <h1>I Meeting Bernat Peso</h1>
+    <h1>I Memorial Bernat Peso</h1>
   </header>
 
+  <!-- Navegación -->
   <nav>
     <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#historia">Historia</a></li>
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#history">Historia</a></li>
       <li><a href="#reglamento">Reglamento</a></li>
       <li><a href="#programa">Programa</a></li>
       <li><a href="#comollegar">Cómo llegar</a></li>
@@ -67,61 +121,93 @@
 
   <main>
     <!-- Inicio -->
-    <section id="inicio">
-      <div class="thumbnails">
-        <a href="#historia"><img src="230610_165847_avap1213.jpg" alt="Historia"/><span>Historia</span></a>
-        <a href="#reglamento"><img src="I Memorial Bernat Peso_ESP.pdf.png" alt="Reglamento"/><span>Reglamento</span></a>
-        <a href="#programa"><img src="horario.png" alt="Programa"/><span>Programa</span></a>
-        <a href="#comollegar"><img src="map-thumbnail.png" alt="Cómo llegar"/><span>Cómo llegar</span></a>
-        <a href="#contacto"><img src="contacto-icon.png" alt="Contacto"/><span>Contacto</span></a>
+    <section id="home" class="active">
+      <div class="grid">
+        <div class="thumb">
+          <a href="#history">
+            <img src="230610_165847_avap1213.jpg" alt="Historia">
+            <span>Historia</span>
+          </a>
+        </div>
+        <div class="thumb">
+          <a href="#reglamento">
+            <img src="230610_171222_avap1419.jpg" alt="Reglamento">
+            <span>Reglamento</span>
+          </a>
+        </div>
+        <div class="thumb">
+          <a href="#programa">
+            <img src="230610_172657_avap1512.jpg" alt="Programa">
+            <span>Programa</span>
+          </a>
+        </div>
+        <div class="thumb">
+          <a href="#gallery">
+            <img src="230610_173735_avap1624.jpg" alt="Galería">
+            <span>Galería</span>
+          </a>
+        </div>
+        <div class="thumb">
+          <a href="#comollegar">
+            <img src="230610_182928_avap1996.jpg" alt="Cómo llegar">
+            <span>Cómo llegar</span>
+          </a>
+        </div>
+        <div class="thumb">
+          <a href="#contacto">
+            <img src="230610_174537_avap1700.jpg" alt="Contacto">
+            <span>Contacto</span>
+          </a>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="feature">
+        <img src="230610_165847_avap1213.jpg" alt="1ª Edición">
+        <div class="text">
+          <h2>1ª Edición del Meeting Bernat Peso</h2>
+          <p>El 2 de julio de 2025 tendrá lugar el I Meeting Bernat Peso en el estadio de La Bòbila en Gavà, organizado por el Club Atletisme Gavà.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="feature">
+        <img src="230610_171222_avap1419.jpg" alt="Pruebas">
+        <div class="text">
+          <h2>Pruebas</h2>
+          <p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5 000, 110 mv y longitud.</p>
+          <p><strong>Mujeres:</strong> 100, 200, 400, 800, 5 000, 100 mv, martillo y longitud.</p>
+        </div>
       </div>
     </section>
 
     <!-- Historia -->
-    <section id="historia">
-      <h2>Historia</h2>
-      <p>El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer. Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.</p>
-      <p>Este I Meeting Bernat Peso, es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.</p>
+    <section id="history">
+      <!-- contenido pendiente -->
     </section>
 
     <!-- Reglamento -->
     <section id="reglamento">
-      <h2>Reglamento</h2>
-      <!-- aquí todo el reglamento completo -->
+      <!-- contenido pendiente -->
     </section>
 
     <!-- Programa -->
     <section id="programa">
-      <h2>Horario</h2>
-      <img src="horario.png" alt="Horario de la Competición" class="horario" />
+      <!-- contenido pendiente -->
     </section>
 
     <!-- Cómo llegar -->
     <section id="comollegar">
-      <h2>Cómo llegar</h2>
-      <ul>
-        <li><strong>Desde Aeropuerto del Prat:</strong> Coche 20km/25min, Tren R2+L94 45min, Autobús Aerobús+L94 55min</li>
-        <li><strong>Desde Barcelona Sants:</strong> Coche 14km/20min, Tren R2+10min pie 30min, Autobús L94 35min</li>
-      </ul>
+      <!-- contenido pendiente -->
     </section>
 
     <!-- Contacto -->
     <section id="contacto">
-      <h2>Contacto</h2>
-      <p>Email: <a href="mailto:competicio@clubatletismegavà.com">competicio@clubatletismegavà.com</a></p>
+      <!-- contenido pendiente -->
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="patrocinadores">
-      <h3>Patrocinadores</h3>
-      <img src="patrocinador_club.jpeg" alt="Patrocinador Club"/>
-      <img src="ajuntament gava.png" alt="Ajuntament de Gavà"/>
-    </div>
-    <div class="info-club">
-      <p>Visita nuestro club: <a href="https://www.clubatletismegava.com" target="_blank">clubatletismegavà.com</a></p>
-    </div>
-  </footer>
 </body>
 </html>
