@@ -6,8 +6,15 @@
 <title>I Memorial Bernat Peso</title>
 <style>
 /* Reset básico */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; line-height: 1.5; }
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: Arial, sans-serif;
+line-height: 1.5;
+}
 
 /* Hero */
 #hero {
@@ -19,23 +26,48 @@ justify-content: center;
 color: #fff;
 text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
-#hero h1 { font-size: 2.5rem; }
+#hero h1 {
+font-size: 2.5rem;
+}
 
 /* Navegación */
-nav { background: #004080; }
-nav ul { list-style: none; display: flex; justify-content: center; }
-nav li { margin: 0 1rem; }
+nav {
+background: #004080;
+}
+nav ul {
+list-style: none;
+display: flex;
+justify-content: center;
+}
+nav li {
+margin: 0 1rem;
+}
 nav a {
 color: #fff;
 text-decoration: none;
 padding: 1rem;
 display: block;
 }
-nav a:hover { background: rgba(255,255,255,0.1); }
+nav a:hover {
+background: rgba(255,255,255,0.1);
+}
+
+/* CONTAINER para forzar márgenes iguales al nav */
+.container {
+width: 100%;
+max-width: 1200px; /* ajustar si la distancia del botón “Inicio” a “Contacto” es distinta */
+margin: 0 auto;
+padding: 0 1rem; /* un pequeño padding interior */
+}
 
 /* Secciones */
-main section { display: none; padding: 2rem 1rem; }
-main section.active { display: block; }
+main section {
+display: none;
+padding: 2rem 0; /* eliminamos el padding horizontal y lo delegamos al .container */
+}
+main section.active {
+display: block;
+}
 
 /* Inicio: miniaturas */
 #home .grid {
@@ -82,9 +114,45 @@ border-top: 2px solid #ccc;
 margin: 2rem 0;
 }
 
-/* Reglamentos: separación izquierda */
+/* Reglamento: justificar texto y separar del borde izquierdo */
 #reglamento .text-reglamento {
-padding-left: 2rem;
+text-align: justify;
+margin-left: 1rem; /* separación mayor respecto al lado izquierdo */
+margin-right: 1rem; /* separación de la derecha */
+}
+
+/* Historia: centrar imagen y separar texto */
+#history img {
+display: block;
+max-width: 300px;
+margin: 1rem auto;
+border: 2px solid #004080;
+border-radius: 4px;
+}
+#history .text-history {
+text-align: justify;
+margin: 1rem;
+}
+
+/* Programa: centrar imagen del horario */
+#programa img {
+width: 100%;
+max-width: 800px;
+display: block;
+margin: 0 auto;
+}
+
+/* Cómo llegar: ajustar iframe de Google Maps */
+#comollegar iframe {
+width: 100%;
+height: 400px;
+border: 0;
+margin-bottom: 1rem;
+}
+
+/* Contacto: estilo simple */
+#contacto p {
+margin-bottom: 1rem;
 text-align: justify;
 }
 </style>
@@ -101,7 +169,7 @@ links.forEach(a => a.addEventListener('click', e => {
 e.preventDefault();
 show(a.getAttribute('href').substring(1));
 }));
-// sección inicial visible
+// al cargarse la página, mostrar “Inicio”
 show('home');
 });
 </script>
@@ -128,6 +196,7 @@ show('home');
 <main>
 <!-- Inicio -->
 <section id="home" class="active">
+<div class="container">
 <div class="grid">
 <div class="thumb">
 <a href="#history">
@@ -143,7 +212,7 @@ show('home');
 </div>
 <div class="thumb">
 <a href="#programa">
-<img src="230610_172657_avap1512.jpg" alt="Programa">
+<img src="horario2.png" alt="Programa">
 <span>Programa</span>
 </a>
 </div>
@@ -183,110 +252,114 @@ show('home');
 <img src="230610_171222_avap1419.jpg" alt="Pruebas">
 <div class="text">
 <h2>Pruebas</h2>
-<p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5 000, 110 mv y longitud.</p>
-<p><strong>Mujeres:</strong> 100, 200, 400, 800, 5 000, 100 mv, martillo y longitud.</p>
+<p><strong>Hombres:</strong> 100, 200, 400, 600, 800, 5000, 110 mv y longitud.</p>
+<p><strong>Mujeres:</strong> 100, 200, 400, 800, 5000, 100 mv, martillo y longitud.</p>
+</div>
 </div>
 </div>
 </section>
 
 <!-- Historia -->
 <section id="history">
-<div class="feature">
+<div class="container">
 <img src="Bernat-historia.jpg" alt="Bernat Peso">
-<div class="text">
-<h2>Historia</h2>
-<p>El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer.</p>
-<p>Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.</p>
-<p>Este I Meeting Bernat Peso, es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.</p>
+<div class="text-history">
+<h2>Historia del I Memorial Bernat Peso</h2>
+<p>El I Meeting Bernat Peso nace como homenaje al que fuera nuestro presidente hasta el 2024 cuando tristemente falleció tras un año luchando contra el cáncer. Hizo crecer el club durante todos los años en los que fue presidente y fue un ejemplo de trabajo, constancia, tenacidad, pasión y amor por el deporte que llevaba en sus venas.</p>
+<p>Este I Meeting Bernat Peso es el heredero del Criterium de Velocidad que se lleva disputando desde 2017. Anteriormente, desde 1999 a 2007, se disputó el Meeting Internacional de Gavà enmarcado en el calendario de la European Athletics.</p>
 </div>
 </div>
 </section>
 
 <!-- Reglamento -->
 <section id="reglamento">
-<div class="text-reglamento">
+<div class="container">
 <h2>Reglamento</h2>
+<div class="text-reglamento">
 <p>El Club Atletismo Gavà con la autorización de la Federación Catalana de Atletismo y bajo el control del colegio de jueces de la Federación, organiza el I Memorial Bernat Peso a celebrarse el próximo día 02 de julio de 2025 en el Estadio Municipal La Bòbila de Gavà (Barcelona).</p>
-
-<p>Todos los atletas tendrán que tener la correspondiente licencia federativa tramitada para la temporada en curso.</p>
-
-<p>Deberán ser realizadas por el club del interesado a través del CALL ROOM de la RFEA. El plazo de inscripción finalizará el viernes 27 de junio de 2025. Pasado este plazo no se admitirá ninguna inscripción.</p>
-
-<p>Los managers que quieran solicitar participación de sus atletas deberán realizarlo a través del siguiente <a href="https://forms.gle/g9Gmo7nDExt1qSCB8" target="_blank" rel="noopener">FORMULARIO DE INSCRIPCIÓN</a>, indicando los siguientes datos:
-Prueba en la que desea participar, Mejor marca 2024-2025, Mejor marca personal, Nombre y apellidos, Fecha de nacimiento, Documento de identidad, Club/País al que pertenece.
-</p>
-
-<p>Para establecer el corte y el orden de las series se observará escrupulosamente el ranking de marcas acreditado. Una vez finalizado el plazo de inscripciones, el club dará 48 h de margen para comunicar las bajas o incidencias producidas en la inscripción al correo electrónico competicio@clubatletismegavà.com. El club hará pública la lista definitiva de admitidos una vez finalizado el período de modificaciones.</p>
-
-<p>Los concursos se limitarán a un máximo de 12 atletas.</p>
-
-<p>Para colaborar en sufragar los costes de la organización la inscripción tendrá un coste de: 5 € por prueba y 8 € por dos o más pruebas con licencia FCA o RFEA. Los atletas situados en los 8 primeros lugares del ranking español de la temporada 2025 no tendrán que pagar ninguna inscripción. El pago de la inscripción se realizará por transferencia bancaria y deberá estar realizada, como máximo, 48 h antes de la competición en el número de cuenta: ES81 0081 1637 2800 01013403.</p>
-
-<p>La entrega de dorsales se realizará hasta 45 minutos antes de la prueba, en lugar visible dentro del recinto del estadio, previa identificación del atleta mediante licencia federativa, documento nacional de identidad o similar.</p>
-
-<p>Las listas de salida definitivas se confeccionarán por marca y categoría acreditada de los atletas confirmados. Todos los participantes tendrán que confirmar su participación en cada prueba hasta 45 minutos antes en el punto indicado. Los atletas tendrán que estar a disposición de los jueces 15 minutos antes de cada prueba.</p>
-
-<p>Se seguirá la reglamentación de la RFEA respecto a la configuración y número de jueces para la homologación de cualquier récord o marca conseguida. Para la toma de tiempo se utilizará cronometraje eléctrico.</p>
-
-<p>Las reclamaciones deberán hacerse ante el Juez Árbitro en los 30 minutos posteriores a la proclamación de resultados, acompañadas de un depósito de 30 € (a devolver en caso de atender su reclamación). La decisión del Juez Árbitro será definitiva.</p>
-
-<p>Todo lo no previsto en este reglamento será resuelto por las normas de la WA o por las normas de la RFEA o la Federación Catalana de Atletismo.</p>
-
-<p>El Club Atletismo Gavà y la Federación Catalana de Atletismo no se hacen responsables de los perjuicios morales y/o materiales que puedan sufrir los participantes y espectadores durante esta competición.</p>
-
-<p>La inscripción a esta competición implica la total aceptación de este Reglamento.</p>
-
-<p>La organización dará los siguientes premios a los tres primeros clasificados según tabla húngara:
-Primero: 500 €,
-Segundo: 300 €,
-Tercero: 150 €.
-</p>
-
-<p>En los premios económicos podrán optar todos los atletas nacionales con licencia por la FCA o por la RFEA. La organización se reserva el derecho a modificar la cuantía de los premios y la categoría de cada prueba en función de los atletas inscritos/as en cada una de las pruebas, notificándolo junto con el horario definitivo y la relación de atletas admitidos/as.</p>
-
-<p>Los atletas ganadores de cada uno de los premios tendrán que remitir al correo competicio@clubatletismegavà.com, antes del 15 de julio, la siguiente documentación: DNI/NIE o pasaporte y el formulario SEPA. En caso de no remitir la documentación, perderán el derecho a este premio. Recibida toda la documentación, se emitirá un recibo detallado del premio con la correspondiente retención. El pago se realizará mediante transferencia bancaria no más tarde de 15 días una vez recibida la documentación.</p>
-
-<p>Los PREMIOS tendrán las retenciones de IRPF que corresponden a ley. En España, la retención aplicada a las cantidades pagadas a los atletas (excepto gastos de viaje) es del 15% para residentes en España.</p>
+<p><strong>Art.1. Licencia.</strong> Todos los atletas tendrán que tener la correspondiente licencia federativa tramitada para la temporada en curso.</p>
+<p><strong>Art.2. Inscripciones.</strong> Deberán ser realizadas por el club del interesado a través del CALL ROOM de la RFEA. El plazo de inscripción finalizará el viernes 27 de junio de 2025. Pasado este plazo no se admitirá ninguna inscripción.<br>
+Los managers que quieran solicitar participación de sus atletas deberán realizarlo a través del siguiente enlace:<br>
+<a href="https://forms.gle/g9Gmo7nDExt1qSCB8" target="_blank">Formulario de Inscripción</a></p>
+<p><strong>Art.3. Lista de admitidos.</strong> Para establecer el corte y el orden de las series se observará escrupulosamente el ranking de marcas acreditado. Una vez finalizado el plazo de inscripciones, el club dará 48 h de margen para comunicar las bajas o incidencias producidas en la inscripción al correo electrónico competicio@clubatletismegavà.com. El club hará pública la lista definitiva de admitidos una vez finalizado el período de modificaciones.</p>
+<p><strong>Art.4. Participación en concursos.</strong> Los concursos se limitarán a un máximo de 12 atletas.</p>
+<p><strong>Art.5. Precio.</strong> Para colaborar en sufragar los costes de la organización la inscripción tendrá un coste de: 5 € prueba y 8 € dos o más con licencia FCA o RFEA. Los atletas situados en los 8 primeros lugares del ranking español de la temporada 2025 no tendrán que pagar ninguna inscripción. El pago de la inscripción se realizará por transferencia bancaria. Esta deberá estar realizada, como máximo, 48 h antes de la competición en el número de cuenta: ES81 0081 1637 2800 01013403</p>
+<p><strong>Art.6. Dorsales.</strong> La entrega de dorsales se realizará hasta 45 minutos antes de la prueba, en lugar visible dentro del recinto del estadio, previa identificación del atleta mediante licencia federativa, documento nacional de identidad, o similar.</p>
+<p><strong>Art.7. Listas de salida.</strong> Las listas de salida definitivas se confeccionarán por marca y categoría acreditada de los atletas confirmados. Todos los participantes tendrán que confirmar su participación en cada prueba hasta 45 minutos antes en el punto indicado. Los atletas tendrán que estar a disposición de los jueces 15 minutos antes de cada prueba.</p>
+<p><strong>Art.8. Jueces y cronometraje.</strong> Se seguirá la reglamentación de la RFEA respecto a la configuración y número de jueces para la homologación de cualquier récord o marca conseguida. Para la toma de tiempo se utilizará cronometraje eléctrico.</p>
+<p><strong>Art.9. Reclamaciones.</strong> Deberán hacerse ante el Juez Árbitro en los 30 minutos después de la proclamación de resultados acompañados de un depósito de 30 € (a devolver en caso de atender su reclamación). La decisión del Juez Árbitro será definitiva.</p>
+<p><strong>Art.10. Todo lo no previsto en este reglamento será resuelto por las normas de la WA o por las normas de la RFEA o la Federación Catalana de Atletismo.</strong></p>
+<p><strong>Art.11. El Club Atletismo Gavà y la Federación Catalana de Atletismo no se hacen responsables de los perjuicios morales y/o materiales que puedan sufrir los participantes y espectadores durante esta competición.</strong></p>
+<p><strong>Art.12. La inscripción a esta competición implica la total aceptación de este Reglamento.</strong></p>
+<p><strong>Art.13. Premios.</strong> La organización dará los siguientes premios a los tres primeros clasificados según tabla húngara:</p>
+<p>Primero: 500 €<br>
+Segundo: 300 €<br>
+Tercero: 150 €</p>
+<p>En los premios económicos podrán optar todos los atletas, nacionales, con licencia por la FCA o por la RFEA. La organización se reserva el derecho a modificar la cuantía de los premios y la categoría de cada prueba en función de los atletas inscritos/as en cada una de las pruebas, notificándolo junto con el horario definitivo y la relación de atletas admitidos/as.</p>
+<p><strong>Art.14. Pago de los premios.</strong> Los atletas ganadores de cada uno de los premios tendrán que remitir al mail dt@clubatletismegava.com antes del 15 de julio la siguiente documentación: DNI/NIE o pasaporte y el formulario SEPA. En caso de no remitir la documentación perderán el derecho a este premio. Recibida toda la documentación se emitirá un recibo detallado del premio, con la correspondiente retención. El pago de los premios se realizará mediante transferencia bancaria no más tarde de 15 días una vez recibida la documentación.</p>
+<p><strong>Art.15. Impuestos.</strong> Los PREMIOS tendrán las retenciones de IRPF que corresponden a ley. En España, la retención por impuestos que se aplica a las cantidades que se abonan en cualquier concepto a los atletas (excepto los de gastos de viajes) es del 15 % para residentes en España.</p>
+</div>
 </div>
 </section>
 
 <!-- Programa -->
 <section id="programa">
+<div class="container">
 <h2>Horario de la Competición</h2>
-<img src="horario2.png" alt="Horario de la Competición" style="width:100%; max-width:600px; display:block; margin:0 auto;">
+<img src="horario2.png" alt="Horario de la Competición">
+</div>
 </section>
 
 <!-- Cómo llegar -->
 <section id="comollegar">
+<div class="container">
 <h2>Cómo llegar</h2>
 <iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.123456789!2d2.027345!3d41.290123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4b0d2e5c8f9ab%3A0xc0ffee1234567890!2sEstadio%20La%20B%C3%B2bila!5e0!3m2!1ses!2ses!4v1621234567890"
-width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3435.123456789012!2d2.024567-0.123456!3d41.287654-0.987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a34bcd5678ef90%3A0xabcdef123456789!2sEstadio%20Municipal%20La%20B%C3%B2bila%2C%20Gav%C3%A0!5e0!3m2!1ses!2ses!4v1623456789012"
+allowfullscreen="" loading="lazy">
+</iframe>
 
-<h3>Desde el Aeropuerto</h3>
-<ul>
-<li><strong>En coche:</strong> 20 km (aprox. 25 min).</li>
-<li><strong>En tren:</strong> Aeropuerto → Sants Estació → Gavà (hora total aprox. 45 min).</li>
-<li><strong>En autobús:</strong> Líneas L99 o L94 hasta Gavà (aprox. 1 h).</li>
-</ul>
+<div>
+<h3>Desde el Aeropuerto de Barcelona-El Prat</h3>
+<p><strong>En coche:</strong> 22 km (aprox. 25 min).</p>
+<p><strong>En tren:</strong> R2 hacia Barcelona Sants (6 min hasta Sants) + tren R2 en Sants hacia Gavà (8 min). Tiempo total aprox. 45 min contando transferencia.</p>
+<p><strong>En autobús:</strong> Bus Aeropuerto (L99) hasta Barcelona Sants (35 min) + autobús L94 desde Sants hasta Gavà (30 min). Tiempo total aprox. 1 h 20 min.</p>
+</div>
 
 <hr>
 
+<div>
 <h3>Desde Barcelona Sants Estació</h3>
-<ul>
-<li><strong>En coche:</strong> 14 km (aprox. 20 min).</li>
-<li><strong>En tren:</strong> R2 Sur Sants → Gavà (aprox. 20 min).</li>
-<li><strong>En autobús:</strong> Línea 94 hasta Gavà (aprox. 30 min).</li>
-</ul>
+<p><strong>En coche:</strong> 17 km (aprox. 20 min).</p>
+<p><strong>En tren:</strong> Renfe R2 desde Sants hasta Gavà (8 min).</p>
+<p><strong>En autobús:</strong> Línea L94 desde Sants hasta el centro de Gavà (30 min).</p>
+</div>
+</div>
 </section>
 
 <!-- Contacto -->
 <section id="contacto">
+<div class="container">
 <h2>Contacto</h2>
-<p><strong>Mail:</strong> competicio@clubatletismegavà.com</p>
+<p><strong>Correo electrónico:</strong> competicio@clubatletismegava.com</p>
 <p><strong>Teléfono:</strong> +34 669 751 133</p>
+<p><strong>Dirección:</strong> Estadio Municipal La Bòbila, Carrer de la Serra, s/n, 08850 Gavà, Barcelona.</p>
+</div>
 </section>
 </main>
+
+<!-- Pie de página con patrocinadores y web del club -->
+<footer style="background:#f5f5f5; padding:20px; text-align:center; margin-top:2rem;">
+<div class="container">
+<h3>Patrocinadores:</h3>
+<div style="display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+<img src="1200px-Ajuntament_de_Gavà_logo.png" alt="Ajuntament de Gavà" style="height:60px;">
+<img src="patrocinador_club.jpeg" alt="Patrocinador Club" style="height:60px;">
+<!-- Añade aquí más logos si hiciera falta -->
+</div>
+<p>Club Atletisme Gavà – <a href="https://www.clubatletismegava.com" target="_blank">www.clubatletismegava.com</a></p>
+</div>
+</footer>
 
 </body>
 </html>
